@@ -5,7 +5,7 @@ use perfect_supplier;
 -- Main tables --
 create table if not exists user (
     id integer unsigned auto_increment,
-    email varchar(50) not null ,
+    email varchar(50) not null unique ,
     password varchar(30) not null ,
     bio varchar(150),
     photo longblob not null ,

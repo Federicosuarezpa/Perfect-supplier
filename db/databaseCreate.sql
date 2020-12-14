@@ -26,13 +26,14 @@ create table if not exists product (
 -- Relation tables --
 
 create table if not exists deal (
+    id integer unsigned auto_increment,
     id_user integer unsigned,
     id_product integer unsigned,
     review varchar(150),
     startDate date not null ,
     endDate date not null ,
     accepted tinyint default null,
-    constraint deal_id_user_pk primary key (id_user),
+    constraint deal_id_deal_pk primary key (id),
     constraint deal_id_user_fk1 foreign key (id_user) references user(id),
     constraint deal_id_product_fk2 foreign key (id_product) references product(id)
 );

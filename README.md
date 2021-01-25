@@ -19,20 +19,21 @@ _¿Que software necesito?
   <li>*[React] - El framework web utilizado</li>
   <li>*[Node] (https://nodejs.org/en/) - Utilizado para el backend</li>
   <li>*[mysql] (https://www.mysql.com/) - El software de base de datos utilizado </li>
+ </ul>
 
 <h2>Dependencias del backend:</h2>
 <p>Algunas de las dependencias como "faker" no son necesarias, se utilizan para poder generar una base de datos de prueba para llevar a cabo pruebas de funcionalidad. </p>
 <ul>
-  <li>@sendgrid/mail</li>
-  <li>body-parse</li>
-  <li>crypto-js</li>
-  <li>date-fns</li>
-  <li>dotenv</li>
-  <li>express-fileupload</li>
-  <li>faker</li>
-  <li>fs-extra</li>
-  <li>jsonwebtoken</li>
-  <li>lodash</li>
+  *[@sendgrid/mail] (https://sendgrid.com/) - Dependencia que nos permite enviar correo a los usuarios - npm install --save @sendgrid/mail
+  *[body-parser] - npm install body-parser
+  *[Crypto-js] - npm install crypto-js
+  *[date-fns] - npm install date-fns
+  *[dotenv] - npm install dotenv
+  *[express-fileupload] - npm i express-fileupload
+  *[faker] - npm install faker</li>
+  *[fs-extra] - npm install fs-extra
+  *[jsonwebtoken] - npm install jsonwebtoken
+  *[lodash] - npm install lodash
   <li>morgan</li>
   <li>mysql2</li>
   <li>sharp</li>

@@ -58,9 +58,9 @@ _npm run dev_
 
 ## Desarrollado con 🛠️
 <ul>
-  <li>*[React] - El framework web utilizado</li>
-  <li>*[Node] (https://nodejs.org/en/) - Utilizado para el backend</li>
-  <li>*[mysql] (https://www.mysql.com/) - El software de base de datos utilizado </li>
+  <li>* [React](https://es.reactjs.org/) - El framework web utilizado</li>
+  <li>* [Node](https://nodejs.org/en/) - Utilizado para el backend</li>
+  <li>* [mysql](https://www.mysql.com/) - El software de base de datos utilizado </li>
  </ul>
  
  ## Autores ✒️

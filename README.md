@@ -44,7 +44,7 @@ _¿Which software do i nedd?_
 * [sharp](https://www.npmjs.com/package/sharp) - npm install sharp</li>
 * [uuid](https://www.npmjs.com/package/uuid) - npm install uuid</li>
 
-_If you want to know something por about dependencies you can read [Dependencies.md]._
+_If you want to know something more about dependencies you can read [Dependencies.md]._
 
 <h2>Frontend in development</h2>
 

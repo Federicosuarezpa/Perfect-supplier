@@ -7,6 +7,7 @@ El sitio web consiste en un portal de intercambio de servicios y productos basad
 Sitio web desarrollado mediante react y node.
 
 <h2>Dependencias del backend:</h2>
+<p>Algunas de las dependencias como "faker" no son necesarias, se utilizan para poder generar una base de datos de prueba para llevar a cabo pruebas de funcionalidad. </p>
 <ul>
   <li>@sendgrid/mail</li>
   <li>body-parse</li>

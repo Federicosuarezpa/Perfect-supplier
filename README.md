@@ -21,22 +21,21 @@ _¿Que software necesito?_
 
 <h2>Dependencias del backend:</h2>
 <p>Algunas de las dependencias como "faker" no son necesarias, se utilizan para poder generar una base de datos de prueba para llevar a cabo pruebas de funcionalidad. </p>
-<ul>
-  <li>@sendgrid/mail (https://sendgrid.com/) - npm install --save @sendgrid/mail </li>
-  <li>body-parser (https://www.npmjs.com/package/body-parser) - npm install body-parser</li>
-  <li>Crypto-js (https://www.npmjs.com/package/crypto-js) - npm install crypto-js</li>
-  <li>date-fns (https://www.npmjs.com/package/date-fns) - npm install date-fns</li>
-  <li>dotenv (https://www.npmjs.com/package/dotenv) - npm install dotenv</li>
-  <li>express-fileupload (https://www.npmjs.com/package/express-fileupload) - npm i express-fileupload</li>
-  <li>faker (https://www.npmjs.com/package/faker) - npm install faker</li>
-  <li>fs-extra (https://www.npmjs.com/package/fs-extra) - npm install fs-extra</li>
-  <li>jsonwebtoken (https://www.npmjs.com/package/jsonwebtoken)- npm install jsonwebtoken</li>
-  <li>lodash (https://www.npmjs.com/package/lodash) - npm install lodash</li>
-  <li>morgan (https://www.npmjs.com/package/morgan) - npm install morgan</li>
-  <li>mysql2 (https://www.npmjs.com/package/mysql2) - npm install --save mysql2</li>
-  <li>sharp (https://www.npmjs.com/package/sharp) - npm install sharp</li>
-  <li>uuid (https://www.npmjs.com/package/uuid) - npm install uuid</li>
-</ul>
+
+* [@sendgrid/mail](https://sendgrid.com/) - npm install --save @sendgrid/mail </li>
+* [body-parser](https://www.npmjs.com/package/body-parser) - npm install body-parser</li>
+* [Crypto-js](https://www.npmjs.com/package/crypto-js) - npm install crypto-js</li>
+* [date-fns](https://www.npmjs.com/package/date-fns) - npm install date-fns</li>
+* [dotenv](https://www.npmjs.com/package/dotenv) - npm install dotenv</li>
+* [express-fileupload](https://www.npmjs.com/package/express-fileupload) - npm i express-fileupload</li>
+* [faker](https://www.npmjs.com/package/faker) - npm install faker</li>
+* [fs-extra](https://www.npmjs.com/package/fs-extra) - npm install fs-extra</li>
+* [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)- npm install jsonwebtoken</li>
+* [lodash](https://www.npmjs.com/package/lodash) - npm install lodash</li>
+* [morgan](https://www.npmjs.com/package/morgan) - npm install morgan</li>
+* [mysql2](https://www.npmjs.com/package/mysql2) - npm install --save mysql2</li>
+* [sharp](https://www.npmjs.com/package/sharp) - npm install sharp</li>
+* [uuid](https://www.npmjs.com/package/uuid) - npm install uuid</li>
 
 _Si te interesa saber para que sirve cada dependencia puedes consultar [Dependencies.md]_
 

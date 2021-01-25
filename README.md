@@ -45,6 +45,15 @@ _Si te interesa saber para que sirve cada dependencia puedes consultar [Dependen
 
 ## Despliegue 📦
 
+_Primero de todo vamos a tener que clonar el repositorio_
+
+*Abrimos la terminal y escribimos git clone https://github.com/Federicosuarezpa/Proveedor-perfecto.git
+
+A continuación tendremos en nuestro ordenador el proyecto, nos harán falta las dependencias, podemos acceder a la carpeta de back y abrirlo con un editor
+de código como VSCode, posteriormente escribimos en nuestra terminal, desde el propio editor en caso de tener: npm install
+
+En este preciso momento ya podremos ejecutar el backend del servidor con el comando: npm run dev
+
 ## Desarrollado con 🛠️
 <ul>
   <li>*[React] - El framework web utilizado</li>

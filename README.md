@@ -2,9 +2,9 @@
 
 Languages availables:
 
-[Spanish](https://github.com/Federicosuarezpa/Proveedor-perfecto/blob/main/español.md)
-[English](https://github.com/Federicosuarezpa/Proveedor-perfecto/blob/main/README.md)
-[German](https://github.com/Federicosuarezpa/Proveedor-perfecto/blob/main/deutch.md) - in development 🛠️
+*[Spanish](https://github.com/Federicosuarezpa/Proveedor-perfecto/blob/main/español.md)
+*[English](https://github.com/Federicosuarezpa/Proveedor-perfecto/blob/main/README.md)
+*[German](https://github.com/Federicosuarezpa/Proveedor-perfecto/blob/main/deutch.md) - in development 🛠️
 
 Web page that has been made as a final project of a full stack developer bootcamp.
 

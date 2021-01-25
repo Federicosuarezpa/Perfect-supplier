@@ -10,7 +10,7 @@ Sitio web desarrollado mediante react y node.
 
 _Las instrucciones detalladas a continuacion te permitirán tener una copia del proyecto en tu repositorio local para probarlo e incluso agregar funcionalidades si así lo deseas_
 
-Mira el apartado de **Deployment** para conocer como desplegar el proyecto en tu máquina.
+Mira el apartado de **Despliegue** para conocer como desplegar el proyecto en tu máquina.
 
 ### Pre-requisitos 📋
 
@@ -42,6 +42,8 @@ _¿Que software necesito?_
 _Si te interesa saber para que sirve cada dependencia puedes consultar [Dependencies.md]_
 
 <h2>Frontend en desarrollo</h2>
+
+## Despliegue 📦
 
 ## Desarrollado con 🛠️
 <ul>

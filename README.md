@@ -21,7 +21,7 @@ See the ** Deployment ** section to know how to deploy the project on your machi
 
 ### Pre-requisites 📋
 
-_¿Which software do i nedd?_
+_¿Which software do you need?_
 
 * [npm](https://docs.npmjs.com/cli/v6/commands/npm-install)
 * [node](https://nodejs.org/en/) 

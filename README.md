@@ -6,9 +6,9 @@ El sitio web consiste en un portal de intercambio de servicios y productos basad
 
 Sitio web desarrollado mediante react y node.
 
-## Comenzamos 🚀
+## Comencemos 🚀
 
-_Estas instrucciones detalladas a continuacion te permitirán tener una copia del proyecto en tu repositorio local para probarlo e incluso agregar funcionalidades si así lo deseas
+_Las instrucciones detalladas a continuacion te permitirán tener una copia del proyecto en tu repositorio local para probarlo e incluso agregar funcionalidades si así lo deseas_
 
 Mira el apartado de **Deployment** para conocer como desplegar el proyecto en tu máquina.
 

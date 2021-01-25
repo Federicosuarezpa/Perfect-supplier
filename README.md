@@ -51,9 +51,11 @@ _Primero de todo vamos a tener que clonar el repositorio_
 
 A continuación tendremos en nuestro ordenador el proyecto, nos harán falta las dependencias, podemos acceder a la carpeta de back y abrirlo con un editor
 de código como VSCode, posteriormente escribimos en nuestra terminal, desde el propio editor en caso de tener: 
+
 _npm install_
 
 En este preciso momento ya podremos ejecutar el backend del servidor con el comando: 
+
 _npm run dev_
 
 ## Desarrollado con 🛠️

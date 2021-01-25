@@ -49,5 +49,9 @@ _Si te interesa saber para que sirve cada dependencia puedes consultar [Dependen
   <li>*[Node] (https://nodejs.org/en/) - Utilizado para el backend</li>
   <li>*[mysql] (https://www.mysql.com/) - El software de base de datos utilizado </li>
  </ul>
+ 
+ ## Autores ✒️
+ * **Federico Hernán Suárez Palavecino** -  (https://github.com/Federicosuarezpa)
+ * **Alejandro Rojas** - (https://github.com/AlexRed84)
 
 

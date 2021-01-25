@@ -24,20 +24,20 @@ _¿Que software necesito?
 <h2>Dependencias del backend:</h2>
 <p>Algunas de las dependencias como "faker" no son necesarias, se utilizan para poder generar una base de datos de prueba para llevar a cabo pruebas de funcionalidad. </p>
 <ul>
-  <li>*[@sendgrid/mail] (https://sendgrid.com/) - Dependencia que nos permite enviar correo a los usuarios - npm install --save @sendgrid/mail </li>
-  <li>*[body-parser] - npm install body-parser</li>
-  <li>*[Crypto-js] - npm install crypto-js</li>
-  <li>*[date-fns] - npm install date-fns</li>
-  <li>*[dotenv] - npm install dotenv</li>
-  <li>*[express-fileupload] - npm i express-fileupload</li>
-  <li>*[faker] - npm install faker</li>
-  <li>*[fs-extra] - npm install fs-extra</li>
-  <li>*[jsonwebtoken] - npm install jsonwebtoken</li>
-  <li>*[lodash] - npm install lodash</li>
-  <li>morgan</li>
-  <li>mysql2</li>
-  <li>sharp</li>
-  <li>uuid</li>
+  <li>@sendgrid/mail (https://sendgrid.com/) - Dependencia que nos permite enviar correo a los usuarios - npm install --save @sendgrid/mail </li>
+  <li>body-parser - npm install body-parser</li>
+  <li>Crypto-js - npm install crypto-js</li>
+  <li>date-fns - npm install date-fns</li>
+  <li>dotenv - npm install dotenv</li>
+  <li>express-fileupload - npm i express-fileupload</li>
+  <li>faker - npm install faker</li>
+  <li>fs-extra - npm install fs-extra</li>
+  <li>jsonwebtoken - npm install jsonwebtoken</li>
+  <li>lodash - npm install lodash</li>
+  <li>morgan - npm install morgan</li>
+  <li>mysql2 - npm install mysql2</li>
+  <li>sharp - npm install sharp</li>
+  <li>uuid - npm install uuid</li>
 </ul>
 
 <h2>Frontend en desarrollo</h2>

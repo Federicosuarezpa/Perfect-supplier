@@ -56,7 +56,7 @@ Open the terminal and type the next command:
 
 _git clone https://github.com/Federicosuarezpa/Proveedor-perfecto.git_
 
-After we'll have a copy of the project on our machine. Now we need dependencies, we can go into back folder and open the project with an IDE as VSCode,
+After this, we'll have a copy of the project on our machine. Now we need dependencies, we can go into back folder and open the project with an IDE as VSCode,
 then we write in our terminal, from the IDE in case it having:
 
 _npm install_

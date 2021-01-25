@@ -15,10 +15,9 @@ Mira el apartado de **Despliegue** para conocer como desplegar el proyecto en tu
 ### Pre-requisitos 📋
 
 _¿Que software necesito?_
-<ul>
-  <li> * [npm](https://docs.npmjs.com/cli/v6/commands/npm-install) </li>
-  <li> * [node](https://nodejs.org/en/) </li>
-</ul>
+
+* [npm](https://docs.npmjs.com/cli/v6/commands/npm-install)
+* [node](https://nodejs.org/en/) 
 
 <h2>Dependencias del backend:</h2>
 <p>Algunas de las dependencias como "faker" no son necesarias, se utilizan para poder generar una base de datos de prueba para llevar a cabo pruebas de funcionalidad. </p>

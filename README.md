@@ -37,7 +37,7 @@ _¿Que software necesito?_
 * [sharp](https://www.npmjs.com/package/sharp) - npm install sharp</li>
 * [uuid](https://www.npmjs.com/package/uuid) - npm install uuid</li>
 
-_Si te interesa saber para que sirve cada dependencia puedes consultar [Dependencies.md]_
+_Si te interesa saber para que sirve cada dependencia puedes consultar [Dependencies.md]._
 
 <h2>Frontend en desarrollo</h2>
 
@@ -57,12 +57,10 @@ En este preciso momento ya podremos ejecutar el backend del servidor con el coma
 _npm run dev_
 
 ## Desarrollado con 🛠️
-<ul>
-  <li>* [React](https://es.reactjs.org/) - El framework web utilizado</li>
-  <li>* [Node](https://nodejs.org/en/) - Utilizado para el backend</li>
-  <li>* [mysql](https://www.mysql.com/) - El software de base de datos utilizado </li>
- </ul>
- 
+* [React](https://es.reactjs.org/) - El framework web utilizado.
+* [Node](https://nodejs.org/en/) - Utilizado para el backend.
+* [mysql](https://www.mysql.com/) - El software de base de datos utilizado.
+
  ## Autores ✒️
  * **Federico Hernán Suárez Palavecino** - [Federicosuarezpa](https://github.com/Federicosuarezpa)
  * **Alejandro Rojas** - [AlexRed84](https://github.com/AlexRed84)

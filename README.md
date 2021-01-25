@@ -47,7 +47,7 @@ _Si te interesa saber para que sirve cada dependencia puedes consultar [Dependen
 
 _Primero de todo vamos a tener que clonar el repositorio_
 
-*Abrimos la terminal y escribimos git clone https://github.com/Federicosuarezpa/Proveedor-perfecto.git
+Abrimos la terminal y escribimos git clone https://github.com/Federicosuarezpa/Proveedor-perfecto.git
 
 A continuación tendremos en nuestro ordenador el proyecto, nos harán falta las dependencias, podemos acceder a la carpeta de back y abrirlo con un editor
 de código como VSCode, posteriormente escribimos en nuestra terminal, desde el propio editor en caso de tener: 

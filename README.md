@@ -15,16 +15,11 @@ Mira el apartado de **Deployment** para conocer como desplegar el proyecto en tu
 ### Pre-requisitos 📋
 
 _¿Que software necesito?
-<ul>
-  <li>*[React] - El framework web utilizado</li>
-  <li>*[Node] (https://nodejs.org/en/) - Utilizado para el backend</li>
-  <li>*[mysql] (https://www.mysql.com/) - El software de base de datos utilizado </li>
- </ul>
 
 <h2>Dependencias del backend:</h2>
 <p>Algunas de las dependencias como "faker" no son necesarias, se utilizan para poder generar una base de datos de prueba para llevar a cabo pruebas de funcionalidad. </p>
 <ul>
-  <li>@sendgrid/mail (https://sendgrid.com/) - Dependencia que nos permite enviar correo a los usuarios - npm install --save @sendgrid/mail </li>
+  <li>@sendgrid/mail (https://sendgrid.com/) - npm install --save @sendgrid/mail </li>
   <li>body-parser - npm install body-parser</li>
   <li>Crypto-js - npm install crypto-js</li>
   <li>date-fns - npm install date-fns</li>
@@ -40,6 +35,15 @@ _¿Que software necesito?
   <li>uuid - npm install uuid</li>
 </ul>
 
+_Si te interesa saber para que sirve cada dependencia puedes consultar [Dependencies.md]
+
 <h2>Frontend en desarrollo</h2>
+
+## Desarrollado con 🛠️
+<ul>
+  <li>*[React] - El framework web utilizado</li>
+  <li>*[Node] (https://nodejs.org/en/) - Utilizado para el backend</li>
+  <li>*[mysql] (https://www.mysql.com/) - El software de base de datos utilizado </li>
+ </ul>
 
 

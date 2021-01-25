@@ -14,7 +14,7 @@ Mira el apartado de **Deployment** para conocer como desplegar el proyecto en tu
 
 ### Pre-requisitos 📋
 
-_¿Que software necesito?
+_¿Que software necesito?_
 
 <h2>Dependencias del backend:</h2>
 <p>Algunas de las dependencias como "faker" no son necesarias, se utilizan para poder generar una base de datos de prueba para llevar a cabo pruebas de funcionalidad. </p>
@@ -35,7 +35,7 @@ _¿Que software necesito?
   <li>uuid - npm install uuid</li>
 </ul>
 
-_Si te interesa saber para que sirve cada dependencia puedes consultar [Dependencies.md]
+_Si te interesa saber para que sirve cada dependencia puedes consultar [Dependencies.md]_
 
 <h2>Frontend en desarrollo</h2>
 

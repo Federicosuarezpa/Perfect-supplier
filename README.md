@@ -64,7 +64,7 @@ _npm run dev_
  </ul>
  
  ## Autores ✒️
- * **Federico Hernán Suárez Palavecino** -  (https://github.com/Federicosuarezpa)
- * **Alejandro Rojas** - (https://github.com/AlexRed84)
+ * **Federico Hernán Suárez Palavecino** - [Federicosuarezpa](https://github.com/Federicosuarezpa)
+ * **Alejandro Rojas** - [AlexRed84)(https://github.com/AlexRed84)
 
 

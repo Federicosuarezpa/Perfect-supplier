@@ -1,6 +1,6 @@
 # Proveedor perfecto
 
-[Ingles](https://github.com/Federicosuarezpa/Proveedor-perfecto/edit/main/README.md)
+[Ingles](https://github.com/Federicosuarezpa/Proveedor-perfecto/blob/main/README.md)
 
 Página web desarrollada como proyecto final de bootcamp de desarrollador full stack.
 

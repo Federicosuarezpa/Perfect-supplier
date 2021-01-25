@@ -16,8 +16,8 @@ Mira el apartado de **Despliegue** para conocer como desplegar el proyecto en tu
 
 _¿Que software necesito?_
 <ul>
-  <li> npm (https://docs.npmjs.com/cli/v6/commands/npm-install) </li>
-  <li> node (https://nodejs.org/en/) </li>
+  <li> *[npm](https://docs.npmjs.com/cli/v6/commands/npm-install) </li>
+  <li> *[node](https://nodejs.org/en/) </li>
 </ul>
 
 <h2>Dependencias del backend:</h2>

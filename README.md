@@ -15,24 +15,28 @@ Mira el apartado de **Deployment** para conocer como desplegar el proyecto en tu
 ### Pre-requisitos 📋
 
 _¿Que software necesito?_
+<ul>
+  <li> npm (https://docs.npmjs.com/cli/v6/commands/npm-install) </li>
+  <li> node (https://nodejs.org/en/) </li>
+</ul>
 
 <h2>Dependencias del backend:</h2>
 <p>Algunas de las dependencias como "faker" no son necesarias, se utilizan para poder generar una base de datos de prueba para llevar a cabo pruebas de funcionalidad. </p>
 <ul>
   <li>@sendgrid/mail (https://sendgrid.com/) - npm install --save @sendgrid/mail </li>
-  <li>body-parser - npm install body-parser</li>
-  <li>Crypto-js - npm install crypto-js</li>
-  <li>date-fns - npm install date-fns</li>
-  <li>dotenv - npm install dotenv</li>
-  <li>express-fileupload - npm i express-fileupload</li>
-  <li>faker - npm install faker</li>
-  <li>fs-extra - npm install fs-extra</li>
-  <li>jsonwebtoken - npm install jsonwebtoken</li>
-  <li>lodash - npm install lodash</li>
-  <li>morgan - npm install morgan</li>
-  <li>mysql2 - npm install mysql2</li>
-  <li>sharp - npm install sharp</li>
-  <li>uuid - npm install uuid</li>
+  <li>body-parser (https://www.npmjs.com/package/body-parser) - npm install body-parser</li>
+  <li>Crypto-js (https://www.npmjs.com/package/crypto-js) - npm install crypto-js</li>
+  <li>date-fns (https://www.npmjs.com/package/date-fns) - npm install date-fns</li>
+  <li>dotenv (https://www.npmjs.com/package/dotenv) - npm install dotenv</li>
+  <li>express-fileupload (https://www.npmjs.com/package/express-fileupload) - npm i express-fileupload</li>
+  <li>faker (https://www.npmjs.com/package/faker) - npm install faker</li>
+  <li>fs-extra (https://www.npmjs.com/package/fs-extra) - npm install fs-extra</li>
+  <li>jsonwebtoken (https://www.npmjs.com/package/jsonwebtoken)- npm install jsonwebtoken</li>
+  <li>lodash (https://www.npmjs.com/package/lodash) - npm install lodash</li>
+  <li>morgan (https://www.npmjs.com/package/morgan) - npm install morgan</li>
+  <li>mysql2 (https://www.npmjs.com/package/mysql2) - npm install --save mysql2</li>
+  <li>sharp (https://www.npmjs.com/package/sharp) - npm install sharp</li>
+  <li>uuid (https://www.npmjs.com/package/uuid) - npm install uuid</li>
 </ul>
 
 _Si te interesa saber para que sirve cada dependencia puedes consultar [Dependencies.md]_

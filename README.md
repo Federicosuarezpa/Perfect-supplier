@@ -48,7 +48,7 @@ _If you want to know something more about dependencies you can read [Dependencie
 
 <h2>Frontend in development</h2>
 
-## Deployment 📦
+## Backend deployment 📦
 
 _First of all we need to clone the repository_
 
@@ -85,6 +85,8 @@ Good job! Now you can login, register and do whatever you want! Enjoy it, feedba
 
 Example of login from postman:
 ![alt text](https://github.com/Federicosuarezpa/Proveedor-perfecto/blob/main/images/login.PNG)
+
+## Frontend deployment 📦
 
 ## Developed with 🛠️
 * [React](https://es.reactjs.org/) - The web framework used.

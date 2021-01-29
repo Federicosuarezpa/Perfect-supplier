@@ -29,17 +29,17 @@ const deleteUser = async (req, res, next) => {
         const [productosPendientes] = await connection.query(
             `
             select * from deal
-            where id_product in (?) and endDate > ?
+            where id_product in (?) and completed = 0 and accepted = 1
             `,
-            [products, new Date()]
+            [products]
         );
-
-        if (productosPendientes.lenght > 0) {
+        
+        if (Object.keys(productosPendientes).length) {
             const error = new Error("Aún tienes reservas pendientes, no puedes eliminar tu usuario");
             error.httpStatus = 400;
             throw error;
         }
-
+        
         await connection.query(
             `
             update user
@@ -66,7 +66,6 @@ const deleteUser = async (req, res, next) => {
             `,
             [id]
         );
-
         res.send({
             status:"ok",
             message: `El usuario con id: ${id} fue anonimizado`

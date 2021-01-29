@@ -29,7 +29,7 @@ const deleteProduct = async (req, res, next) => {
             `
             select id
             from deal
-            where id_product = ? and endDate > ?
+            where id_product = ? and completed = 1
             `,
             [id, new Date()]
         );

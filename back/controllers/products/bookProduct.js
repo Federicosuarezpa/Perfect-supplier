@@ -18,10 +18,10 @@ const bookProduct = async (req, res, next) => {
 
         await connection.query(
             `
-            insert into deal (id_user, id_product, startDate, endDate, price)
-            values (?,?,?,?,?,?)
+            insert into deal (id_user, id_product, price)
+            values (?,?,?)
             `,
-            [req.userAuth.id,id_product,startDate,endDate,price]
+            [req.userAuth.id,id_product,price]
         );
 
         const [user] = await connection.query(

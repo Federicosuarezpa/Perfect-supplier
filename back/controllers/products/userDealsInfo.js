@@ -10,7 +10,7 @@ const userDeals = async (req, res, next) => {
             `
             select  *
             from deal
-            where id_user = ?
+            where id_user = ? and accepted != 0
             `,
             [req.userAuth.id]
         );

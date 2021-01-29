@@ -6,7 +6,7 @@ const voteProduct = async (req, res, next) => {
     try {
         connection = await getDB();
 
-        const { puntuation } = req.body;
+        const { puntuation, review } = req.body;
         const { id_deal } = req.params;
         
         const [values] = connection.query(
@@ -38,8 +38,13 @@ const voteProduct = async (req, res, next) => {
             error.httpStatus = 401;
             throw error;
         }
-                
-        if (!puntuation || puntuation > 5 || puntuation < 1 ) {
+        if (!review)
+        {
+            const error = new Error("Falta por poner una review");
+            error.httpStatus = 401;
+            throw error;
+        }        
+        if (!puntuation || puntuation > 5 || puntuation < 1) {
             const error = new Error("Falta la puntuación o el valor es incorrecto");
             error.httpStatus = 401;
             throw error;

@@ -15,27 +15,35 @@ const pendingDeals = async (req, res, next ) => {
             [req.userAuth.id]
         );
         userProducts = userProducts.map(function(el) {return el.id});
-        const [pendingDeals] = await connection.query(
-            `
-            select *
-            from deal
-            where id_product in (?) and endDate > ?
-            `,
-            [userProducts, new Date()]
-        );
-
-        if (pendingDeals.length === 0) 
+        if (userProducts.length > 0)
+        {
+            const [pendingDeals] = await connection.query(
+                `
+                select *
+                from deal
+                where id_product in (?) and completed = 0 and accepted = 1
+                `,
+                [userProducts]
+            );
+            if (Object.keys(pendingDeals).length === 0) 
+            {
+                const error = new Error("No tienes reservas pendientes");
+                error.httpStatus = 401;
+                throw error;
+            }
+            res.send({
+                status:"ok",
+                message: {
+                    pendingDeals,
+                }
+            });
+        }
+        else
         {
             const error = new Error("No tienes reservas pendientes");
             error.httpStatus = 401;
             throw error;
         }
-        res.send({
-            status:"ok",
-            message: {
-                pendingDeals,
-            }
-        });
     } catch (error) {
         next(error);
     } finally {

@@ -5,7 +5,7 @@ const userProducts = async (req, res, next) => {
 
     try {
         connection = await getDB();
-        /**Falta agregar filtrados y recomendaciones personalizadas usuarios, implementar mas adelante */
+        /**Falta agregar filtrados y recomendaciones generales*/
         const [products] = connection.query (
             `
             select id, location, price, description, startDate, endDate

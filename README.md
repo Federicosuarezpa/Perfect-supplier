@@ -48,7 +48,7 @@ _If you want to know something more about dependencies you can read [Dependencie
 
 <h2>Frontend in development</h2>
 
-## Deployment 📦
+## Backend deployment 📦
 
 _First of all we need to clone the repository_
 
@@ -61,9 +61,32 @@ then we write in our terminal, from the IDE in case it having:
 
 _npm install_
 
-At this precise moment we will be able to execute the backend of the server with the command:
+Now you need to create a database with a name you like and use it, you can use the nexts commands:
+```
+create database if not exists perfect_supplier character set = 'utf8mb4' collate = 'utf8mb4_spanish_ci';
 
-_npm run dev_
+use perfect_supplier;
+```
+This commands can be run from a terminal if you've mysql installed.
+
+[info about mysql](https://dev.mysql.com/doc/refman/8.0/en/creating-database.html)
+
+Then we've the DB, to create the tables just execute de js file "initDB.js" with the commmand:
+```
+node initDB.js
+```
+
+At this precise moment we will be able to execute the backend of the server with the command:
+```
+npm run dev
+```
+
+Good job! Now you can login, register and do whatever you want! Enjoy it, feedback is welcome ✒️.
+
+Example of login from postman:
+![alt text](https://github.com/Federicosuarezpa/Proveedor-perfecto/blob/main/images/login.PNG)
+
+## Frontend deployment 📦
 
 ## Developed with 🛠️
 * [React](https://es.reactjs.org/) - The web framework used.

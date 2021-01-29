@@ -68,6 +68,7 @@ create database if not exists perfect_supplier character set = 'utf8mb4' collate
 use perfect_supplier;
 
 This commands can be run from a terminal if you've mysql installed.
+
 [info about mysql](https://dev.mysql.com/doc/refman/8.0/en/creating-database.html)
 
 Then we've the DB, to create the tables just execute de js file "initDB.js" with the commmand:

@@ -63,9 +63,9 @@ _npm install_
 
 Now you need to create a database with a name you like and use it, you can use the nexts commands:
 ```
-_create database if not exists perfect_supplier character set = 'utf8mb4' collate = 'utf8mb4_spanish_ci';_
+create database if not exists perfect_supplier character set = 'utf8mb4' collate = 'utf8mb4_spanish_ci';
 
-_use perfect_supplier;_
+use perfect_supplier;
 ```
 This commands can be run from a terminal if you've mysql installed.
 
@@ -78,7 +78,7 @@ node initDB.js
 
 At this precise moment we will be able to execute the backend of the server with the command:
 ```
-_npm run dev_
+npm run dev
 ```
 
 Good job! Now you can login, register and do whatever you want! Enjoy it, feedback is welcome ✒️.

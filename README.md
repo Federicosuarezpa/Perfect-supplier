@@ -83,6 +83,9 @@ npm run dev
 
 Good job! Now you can login, register and do whatever you want! Enjoy it, feedback is welcome ✒️.
 
+Example:
+![alt text](https://github.com/Federicosuarezpa/Proveedor-perfecto/blob/main/images/login.PNG)
+
 ## Developed with 🛠️
 * [React](https://es.reactjs.org/) - The web framework used.
 * [Node](https://nodejs.org/en/) - Used to do the backend.

@@ -62,22 +62,24 @@ then we write in our terminal, from the IDE in case it having:
 _npm install_
 
 Now you need to create a database with a name you like and use it, you can use the nexts commands:
+```
+_create database if not exists perfect_supplier character set = 'utf8mb4' collate = 'utf8mb4_spanish_ci';_
 
-create database if not exists perfect_supplier character set = 'utf8mb4' collate = 'utf8mb4_spanish_ci';
-
-use perfect_supplier;
-
+_use perfect_supplier;_
+```
 This commands can be run from a terminal if you've mysql installed.
 
 [info about mysql](https://dev.mysql.com/doc/refman/8.0/en/creating-database.html)
 
 Then we've the DB, to create the tables just execute de js file "initDB.js" with the commmand:
-
+```
 node initDB.js
+```
 
 At this precise moment we will be able to execute the backend of the server with the command:
-
+```
 _npm run dev_
+```
 
 Good job! Now you can login, register and do whatever you want! Enjoy it, feedback is welcome ✒️.
 

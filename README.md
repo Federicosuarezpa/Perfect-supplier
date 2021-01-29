@@ -83,7 +83,7 @@ npm run dev
 
 Good job! Now you can login, register and do whatever you want! Enjoy it, feedback is welcome ✒️.
 
-Example:
+Example of login from postman:
 ![alt text](https://github.com/Federicosuarezpa/Proveedor-perfecto/blob/main/images/login.PNG)
 
 ## Developed with 🛠️

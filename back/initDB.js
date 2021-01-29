@@ -85,7 +85,7 @@ async function main() {
             insert into user (date, email, name, password, active)
             values (?, ?, ?, SHA2(?,512), ?)
             `,
-            [new Date(), "fede_mixcai10@hotmail.com", "Federico", "1234A?x.", true]
+            [new Date(), "pzne3xe2@hotmail.com", "Federico", "1234A?x.", true]
         );
 
         await connection.query(
@@ -93,7 +93,7 @@ async function main() {
             insert into user (date, email, name, password, active)
             values (?, ?, ?, SHA2(?,512), ?)
             `,
-            [new Date(), "pokz1z@outlook.es", "Hernán", "1234x?a.", true]
+            [new Date(), "emailprove@outlook.es", "Hernán", "1234x?a.", true]
         );
         
         await connection.query(

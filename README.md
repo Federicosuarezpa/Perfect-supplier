@@ -71,6 +71,8 @@ This commands can be run from a terminal if you've mysql installed.
 
 [info about mysql](https://dev.mysql.com/doc/refman/8.0/en/creating-database.html)
 
+If you prefer, you've a sql script in db folder.
+
 Then we've the DB, to create the tables just execute de js file "initDB.js" with the commmand:
 ```
 node initDB.js

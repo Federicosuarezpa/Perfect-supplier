@@ -1,45 +1,51 @@
-import logo from './ubs-logo-svg.svg';
 import './App.css';
-
 function App() {
   return (
-    <body class="topnav" id="myTopnav">
+    <div className="topnav" id="myTopnav">
       <header>
         <nav>
-          <a class="links logo" href="#">
+          <a className="links logo" href="#">
             F2F Business
           </a>
-          <div class="rightSection">
-            <a class="links links-hidden" href="h">
+          <div className="rightSection">
+            <a className="links" href="/">
               Inicio
             </a>
-            <a class="links links-hidden" href="#">
+            <a className="links" href="#">
               Contacto
             </a>
-            <a class="links links-hidden" href="#">
-              Información
+            <a className="links" href="#">
+              Productos
             </a>
-            <a class="links links-hidden" href="#">
-              Registro
+            <a className="links" href="#">
+              Perfil
             </a>
-            <a class="links links-hidden" href="#">
-              Iniciar sesión
+            <a className="links" href="#">
+              Cerrar sesión
             </a>
           </div>
-          <a class="hamburger">☰</a>
+          <div class="dropdown alineado">
+            <a class=" op">☰</a>
+            <div class="dropdown-content">
+              <a href="#">Perfil</a>
+              <a href="#">Cerrar sesión</a>
+              <a href="#">Productos</a>
+            </div>
+          </div>
         </nav>
       </header>
-      <div class="dino">
-        <div class="info">
+      <div className="back">
+        <div className="info">
           <h1>F2F Business</h1>
           <h2>El portal web donde puedes encontrar lo que necesitas</h2>
         </div>
       </div>
-      <div class="formulario">
+      <div className="formulario">
+        <div class="contact-form"></div>
         <h1>Envíanos un mensaje</h1>
         <h2>Nombre</h2>
       </div>
-    </body>
+    </div>
   );
 }
 

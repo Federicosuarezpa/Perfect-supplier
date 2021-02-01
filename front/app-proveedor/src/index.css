@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+nav {
+  overflow: hidden;
+  background-color: #685a5a42;
+  padding: 0.5rem;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}
+.links {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  float: left;
+  color: #fff;
+
+  text-align: center;
+  padding: 0.8rem;
+  text-decoration: none;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  border-radius: 1rem;
+}
+nav .logo {
+  font-size: 25px;
+  font-weight: normal;
+}
+nav .links:hover {
+  background-color: #424242;
+}
+
+.rightSection {
+  float: right;
+}
+.hamburger {
+  color: white;
+  font-weight: normal;
+  display: none;
+}
+.dino {
+  background-image: url('glenn-carstens-peters-P1qyEf1g0HU-unsplash.jpg');
+  background-color: #cccccc;
+  height: 80vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.info {
+  text-align: center;
+  height: 40vmin;
+  pointer-events: none;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  transform: translate(0%, 35%);
+  font-weight: bold;
+  font-size: calc(10px + 2vmin);
+  color: #fff;
+}
+.info h1 {
+  font-size: 3rem;
+}
+.info h2 {
+  font-size: 2rem;
+}
+.formulario {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+@media screen and (max-width: 874px) {
+  .rightSection {
+    display: none;
+  }
+  .hamburger {
+    float: right;
+    display: block;
+    padding: 1rem;
+    padding-top: 1.2rem;
+    position: relative;
+  }
+}

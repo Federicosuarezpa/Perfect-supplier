@@ -1,51 +1,29 @@
 import './App.css';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import logoTwitter from './twitter.svg';
+import logoFacebook from './facebook.svg';
+import logoInstagram from './instagram.svg';
+import logoGithub from './github.svg';
+import { login } from './http/api';
+import Home from './pages/Home';
+/*import Home from './pages/Home';
+import Title from './components/Title';
+import Login from './pages/Login';
+import register from './pages/Register';
+import all from './pages/all';
+import profile from './pages/profile';
+import { AuthProvider } from './shared/context/authContext';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';*/
+
 function App() {
   return (
-    <div className="topnav" id="myTopnav">
-      <header>
-        <nav>
-          <a className="links logo" href="#">
-            F2F Business
-          </a>
-          <div className="rightSection">
-            <a className="links" href="/">
-              Inicio
-            </a>
-            <a className="links" href="#">
-              Contacto
-            </a>
-            <a className="links" href="#">
-              Productos
-            </a>
-            <a className="links" href="#">
-              Perfil
-            </a>
-            <a className="links" href="#">
-              Cerrar sesión
-            </a>
-          </div>
-          <div class="dropdown alineado">
-            <a class=" op">☰</a>
-            <div class="dropdown-content">
-              <a href="#">Perfil</a>
-              <a href="#">Cerrar sesión</a>
-              <a href="#">Productos</a>
-            </div>
-          </div>
-        </nav>
-      </header>
-      <div className="back">
-        <div className="info">
-          <h1>F2F Business</h1>
-          <h2>El portal web donde puedes encontrar lo que necesitas</h2>
-        </div>
-      </div>
-      <div className="formulario">
-        <div class="contact-form"></div>
-        <h1>Envíanos un mensaje</h1>
-        <h2>Nombre</h2>
-      </div>
-    </div>
+    <Router>
+      <switch>
+        <Route path="/">
+          <Home></Home>
+        </Route>
+      </switch>
+    </Router>
   );
 }
 

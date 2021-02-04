@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 * {
   margin: 0;
   box-sizing: border-box;
@@ -26,12 +27,16 @@ nav {
   line-height: 1.6rem;
   border-radius: 1rem;
 }
+.logo {
+  color: black;
+}
 nav .logo {
-  font-size: 25px;
+  font-size: 2rem;
+  font-family: 'Lobster', cursive;
   font-weight: normal;
 }
 nav .links:hover {
-  background-color: #424242b9;
+  background-color: rgb(27, 30, 37);
 }
 
 .rightSection {
@@ -63,6 +68,7 @@ nav .links:hover {
 }
 .info h1 {
   font-size: 3rem;
+  font-family: 'Lobster', cursive;
   text-shadow: -6px 3px 1px rgba(0, 0, 0, 0.68);
 }
 .info h2 {
@@ -87,7 +93,6 @@ nav .links:hover {
   display: none;
 }
 .formulario {
-  background-image: url('foto2.jpg');
   background-color: #cccccc;
   height: 40vh;
   background-position: center;
@@ -102,6 +107,41 @@ nav .links:hover {
   position: fixed;
   z-index: 1000;
 }
+.footer-content {
+  background-color: rgb(27, 30, 37);
+  min-height: 20vh;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+.footer-content h1 {
+  font-size: 2rem;
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  text-shadow: -2px 2px 1px rgba(255, 255, 255, 0.3);
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  transition: 2s ease-in;
+}
+.hola {
+  margin-top: 1rem;
+  background-color: white;
+  border: 1px solid rgb(27, 30, 37);
+  margin: 1rem;
+  margin-top: 2.5rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  transition: 1s ease;
+}
+.hola:hover {
+  border-radius: 50%;
+  border-color: white;
+}
+.footer-content h1 a:hover {
+  border-bottom: 1px solid rgb(255, 255, 255, 1);
+  transition: 2s ease;
+}
+
 @media screen and (max-width: 874px) {
   .rightSection {
     display: none;

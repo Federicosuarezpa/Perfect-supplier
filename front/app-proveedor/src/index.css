@@ -44,7 +44,7 @@ nav .links:hover {
 }
 
 .back {
-  background-image: url('glenn-carstens-peters-P1qyEf1g0HU-unsplash.jpg');
+  background-image: url('');
   background-color: #cccccc;
   height: 100vh;
   background-position: center;
@@ -140,6 +140,9 @@ nav .links:hover {
 .footer-content h1 a:hover {
   border-bottom: 1px solid rgb(255, 255, 255, 1);
   transition: 2s ease;
+}
+button {
+  background-color: black;
 }
 
 @media screen and (max-width: 874px) {

@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import useAuth from '../shared/hooks/useAuth';
 import UserLogged from './logedUser';
 import UserNotLogged from './notUserLogged';
+import BotonRegistro from './registro';
 
 export default function Header() {
-  //const { signOut } = useAuth();
   return (
     <nav>
       <Link to="/" className="links logo">
@@ -25,16 +25,16 @@ export default function Header() {
           <Link className="links">Cerrar sesión</Link>
         </UserLogged>
         <UserNotLogged>
-          <Link className="links">Registrarse</Link>
+          <BotonRegistro></BotonRegistro>
           <Link className="links">Iniciar sesión</Link>
         </UserNotLogged>
       </div>
       <div class="dropdown alineado">
         <a class=" op">☰</a>
         <div class="dropdown-content">
-          <a href="#">Perfil</a>
+          <Link to="/">Inicio</Link>
           <UserLogged>
-            <Link>Perfil</Link>
+            <Link to="/profile">Perfil</Link>
             <Link>Cerrar sesión</Link>
           </UserLogged>
           <UserNotLogged>

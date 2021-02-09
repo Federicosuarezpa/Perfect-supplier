@@ -6,6 +6,7 @@ import logoInstagram from './instagram.svg';
 import logoGithub from './github.svg';
 import { login } from './http/api';
 import Home from './pages/Home';
+import Formulario from '.pages/Formulario';
 /*import Home from './pages/Home';
 import Title from './components/Title';
 import Login from './pages/Login';
@@ -22,8 +23,24 @@ function App() {
         <Route path="/">
           <Home></Home>
         </Route>
-      </switch>
-    </Router>
+        <Router>
+      <switch>
+
+      <Router>
+      <switch>
+        <Route path="/">
+          <Formulario>
+            <nav>
+              <ul>
+                <li> <Link to="/app-proveedor/src/components/registro.js"></Link></li>
+              </ul>
+            </nav>
+          </Formulario>
+        </Route>
+        <Router>
+      <switch>
+      
+     
   );
 }
 

@@ -97,6 +97,5 @@ Example of login from postman:
 
  ## Authors ✒️
  * **Federico Hernán Suárez Palavecino** - [Federicosuarezpa](https://github.com/Federicosuarezpa)
- * **Alejandro Rojas** - [AlexRed84](https://github.com/AlexRed84)
 
 

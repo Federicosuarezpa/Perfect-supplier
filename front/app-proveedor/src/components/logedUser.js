@@ -1,6 +1,7 @@
-import { AuthContext } from '../shared/context/authContext';
+import useAuth from '../shared/hooks/useAuth';
+
 export default function UserLogged({ children }) {
-  const { isUserLogged } = AuthContext;
+  const { isUserLogged } = useAuth();
 
   return <>{isUserLogged ? children : null}</>;
 }

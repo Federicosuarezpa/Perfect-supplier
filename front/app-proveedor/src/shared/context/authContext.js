@@ -1,8 +1,9 @@
 import React from 'react';
 import decodeTokenData from '../utils/decodeTokenData';
 import { useState } from 'react';
-import { login, signUpApi } from '../../http/api.js';
 import { useHistory } from 'react-router-dom';
+import { login } from '../../http/api2';
+import { signUpApi } from '../../http/api2';
 
 // 1 Creamos el contexto y exportamos para usar en el hook
 export const AuthContext = React.createContext();
@@ -19,8 +20,8 @@ export function AuthProvider({ children }) {
   const history = useHistory();
 
   // Método para hacer log in desde los componentes
-  const signIn = async (email, password) => {
-    const loginData = await login(email, password);
+  const signIn = async (email, password, confirmPassword) => {
+    const loginData = await login(email, password, confirmPassword);
     localStorage.setItem('token', loginData);
     const tokenObject = decodeTokenData(loginData);
     setUserData(tokenObject);
@@ -29,8 +30,9 @@ export function AuthProvider({ children }) {
   };
 
   // Método para registrarse
-  const signUp = async (email, password) => {
-    const message = await signUpApi();
+  const signUp = async (name, email, password, confirmPassword) => {
+    console.log(name, email, password, confirmPassword);
+    const message = await signUpApi(name, email, password, confirmPassword);
     return message;
   };
 

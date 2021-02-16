@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import useAuth from '../shared/hooks/useAuth';
-import UserLogged from './logedUser';
-import UserNotLogged from './notUserLogged';
-import BotonRegistro from './registro';
+import UserLogged from './LogedUser';
+import UserNotLogged from './NotUserLogged';
 
 export default function Header() {
+  const { signOut } = useAuth();
   return (
     <nav>
       <Link to="/" className="links logo">
@@ -21,25 +21,35 @@ export default function Header() {
           Productos
         </Link>
         <UserLogged>
-          <Link className="links">Perfil</Link>
-          <Link className="links">Cerrar sesión</Link>
+          <Link to="/Profile" className="links">
+            Perfil
+          </Link>
+          <Link className="links" to="/" onClick={signOut}>
+            Cerrar Sesión
+          </Link>
         </UserLogged>
         <UserNotLogged>
-          <BotonRegistro></BotonRegistro>
-          <Link className="links">Iniciar sesión</Link>
+          <Link to="/register" className="links">
+            Registrarse
+          </Link>
+          <Link to="/login" className="links">
+            Iniciar sesión
+          </Link>
         </UserNotLogged>
       </div>
-      <div class="dropdown alineado">
-        <a class=" op">☰</a>
-        <div class="dropdown-content">
+      <div className="dropdown alineado">
+        <a className=" op">☰</a>
+        <div className="dropdown-content">
           <Link to="/">Inicio</Link>
           <UserLogged>
             <Link to="/profile">Perfil</Link>
-            <Link>Cerrar sesión</Link>
+            <Link className="links" to="/" onClick={signOut}>
+              Cerrar Sesión
+            </Link>
           </UserLogged>
           <UserNotLogged>
-            <Link>Registrarse</Link>
-            <Link>Iniciar sesión</Link>
+            <Link to="/register">Registrarse</Link>
+            <Link to="/login">Iniciar sesión</Link>
           </UserNotLogged>
         </div>
       </div>

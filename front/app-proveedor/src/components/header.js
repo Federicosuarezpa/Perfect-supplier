@@ -5,6 +5,11 @@ import UserNotLogged from './NotUserLogged';
 
 export default function Header() {
   const { signOut } = useAuth();
+  const { userData } = useAuth();
+  let profile;
+  if (userData) {
+    profile = `/profile/${userData.id}`;
+  }
   return (
     <nav>
       <Link to="/" className="links logo">
@@ -14,14 +19,11 @@ export default function Header() {
         <Link to="/" className="links">
           Inicio
         </Link>
-        <Link to="/" className="links">
-          Contacto
-        </Link>
         <Link to="/all" className="links">
           Productos
         </Link>
         <UserLogged>
-          <Link to="/Profile" className="links">
+          <Link to={profile} className="links">
             Perfil
           </Link>
           <Link className="links" to="/" onClick={signOut}>
@@ -38,11 +40,11 @@ export default function Header() {
         </UserNotLogged>
       </div>
       <div className="dropdown alineado">
-        <a className=" op">☰</a>
+        <p className=" op">☰</p>
         <div className="dropdown-content">
           <Link to="/">Inicio</Link>
           <UserLogged>
-            <Link to="/profile">Perfil</Link>
+            <Link to={profile}>Perfil</Link>
             <Link className="links" to="/" onClick={signOut}>
               Cerrar Sesión
             </Link>

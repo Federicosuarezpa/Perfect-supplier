@@ -45,6 +45,7 @@ app.use(cors());
 app.use(fileUpload());
 
 app.use(express.static(path.join(__dirname, "static")));
+console.log(__dirname);
 
 /*Path para validación de usuario mediante código de registro proporcionado automáticamente*/
 app.get("/user/validate/:registrationCode", validateUser);
@@ -83,7 +84,6 @@ app.get("/user/:id/all/:id_product", isUser, userExists, getProducts);
 app.get("/all", getProducts);
 /**Falta agregar apartado de voto, eliminar reserva, etc */
 /**Filtros y recomendaciones y middlewares de que el producto exista, en una tarde se hace */
-
 app.use((error, req, res, next) => {
   console.error(error);
   res.status(error.httpStatus || 500).send({

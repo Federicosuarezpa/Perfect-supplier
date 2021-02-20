@@ -1,8 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
-
 export default function AuthForm(props) {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit } = useForm();
   const [errorMessage, setErrorMessage] = useState('');
   const [statusMessage, setstatusMessage] = useState('');
 
@@ -20,7 +19,7 @@ export default function AuthForm(props) {
     }
   };
 
-  return (  
+  return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="email">Email</label>
       <input id="email" name="email" ref={register({ required: true })} />

@@ -7,15 +7,15 @@ const getDB = require("./dbConnection");
 let connection;
 
 async function main() {
-    try {
-        connection = await getDB();
-        await defineDB();
-        await connection.query("drop table if exists ratingTable");
-        await connection.query("drop table if exists deal");
-        await connection.query("drop table if exists product");
-        await connection.query("drop table if exists user");
+  try {
+    connection = await getDB();
+    await defineDB();
+    await connection.query("drop table if exists ratingTable");
+    await connection.query("drop table if exists deal");
+    await connection.query("drop table if exists product");
+    await connection.query("drop table if exists user");
 
-        await connection.query(`
+    await connection.query(`
             create table if not exists user (
                 id integer unsigned auto_increment,
                 name varchar(50) not null,
@@ -34,8 +34,8 @@ async function main() {
                 constraint user_id_user_pk primary key (id)
             )
         `);
-        await connection.query(
-            `
+    await connection.query(
+      `
             create table if not exists product (
                 id integer unsigned auto_increment,
                 id_user integer unsigned,
@@ -49,9 +49,9 @@ async function main() {
                 constraint product_id_user_fk1 foreign key (id_user) references user(id) on delete cascade on update cascade
             )
             `
-        );
-        await connection.query(
-            `
+    );
+    await connection.query(
+      `
             create table if not exists deal (
                 id integer unsigned auto_increment,
                 id_user integer unsigned,
@@ -65,9 +65,9 @@ async function main() {
                 constraint deal_id_product_fk2 foreign key (id_product) references product(id) on delete cascade on update cascade
             )
             `
-        );
-        await connection.query(
-            `
+    );
+    await connection.query(
+      `
             create table if not exists ratingTable (
                 id integer unsigned auto_increment,
                 id_deal integer unsigned,
@@ -79,98 +79,107 @@ async function main() {
                 constraint ratingTable_id_product_fk1 foreign key (id_product) references product(id) on delete cascade on update cascade
             )
             `
-        );
-        await connection.query(
-            `
+    );
+    await connection.query(
+      `
             insert into user (date, email, name, password, active)
             values (?, ?, ?, SHA2(?,512), ?)
             `,
-            [new Date(), "pzne3xe2@hotmail.com", "Federico", "1234A?x.", true]
-        );
+      [new Date(), "fede_mixcai10@hotmail.com", "Federico", "1234A?x.", true]
+    );
 
-        await connection.query(
-            `
+    await connection.query(
+      `
             insert into user (date, email, name, password, active)
             values (?, ?, ?, SHA2(?,512), ?)
             `,
-            [new Date(), "emailprove@outlook.es", "Hernán", "1234x?a.", true]
-        );
-        
-        await connection.query(
-            `
+      [new Date(), "emailprove@outlook.es", "Hernán", "1234x?a.", true]
+    );
+
+    await connection.query(
+      `
             insert into product(location,id_user,category,name,price,description,photo)
             values(?,?,?,?,?,?,?)
             `,
-            ["Tarragona",1,"Limpieza","Limpieza en casas",20,"hola","asopd"]
-        );
+      ["Tarragona", 1, "Limpieza", "Limpieza en casas", 20, "hola", "asopd"]
+    );
 
-        await connection.query(
-            `
+    await connection.query(
+      `
             insert into deal (id_user, id_product, price, accepted)
             values(?,?,?,?)
             `,
-            [2,1,20.0,true]
-        );
+      [2, 1, 20.0, true]
+    );
 
+    const userProvider = 100;
 
-        const userProvider = 100;
+    for (let i = 0; i < userProvider; i++) {
+      const now = new Date();
+      const email = faker.internet.email();
+      const pass = faker.internet.password();
+      const name = faker.name.findName();
 
-        for (let i = 0; i < userProvider ; i++)
-        {
-            const now = new Date();
-            const email = faker.internet.email();
-            const pass = faker.internet.password();
-            const name = faker.name.findName();
-
-            await connection.query(
-                `
+      await connection.query(
+        `
                 insert into user (date, email, name, password, active)
                 values(?,?,?,SHA2(?, 512),?)
                 `,
-                [now, email,name, pass, true]
-            );
-        }
+        [now, email, name, pass, true]
+      );
+    }
 
-        let products = 100;
+    let products = 100;
 
-        for (let i = 0; i < products; i++)
-        {
-            let location = ['Tarragona', 'Sevilla', 'Barcelona', 'Madrid', 'Reus'];
-            let category = ['Jardineria', 'Cloud Service', 'Limpieza', 'Proveedor bebidas'];
-            let name = faker.company.companyName();
-            await connection.query(
-                `
+    for (let i = 0; i < products; i++) {
+      let location = ["Tarragona", "Sevilla", "Barcelona", "Madrid", "Reus"];
+      let category = [
+        "Jardineria",
+        "Cloud Service",
+        "Limpieza",
+        "Proveedor bebidas",
+      ];
+      let name = faker.company.companyName();
+      await connection.query(
+        `
                 insert into product (location, id_user, category, name, price, description, photo)
                 values (?,?,?,?,?,?,?)
                 `,
-                [location[random(0,location.length-1)],random(1,50), category[random(0,category.length-1)], name, random(0,999), faker.company.companyName(),"ioasjdoiasjd"]
-            );
-        }
-        await connection.query(
-            `
+        [
+          location[random(0, location.length - 1)],
+          random(1, 50),
+          category[random(0, category.length - 1)],
+          name,
+          random(0, 999),
+          faker.company.companyName(),
+          "ioasjdoiasjd",
+        ]
+      );
+    }
+    await connection.query(
+      `
             insert into deal (id_user, id_product,accepted, price)
             values(?,?,?,?)
             `,
-            [1,4,true,20]
-        );
+      [1, 4, true, 20]
+    );
 
-        let books = 60;
+    let books = 60;
 
-        for (let i = 0; i < books; i++)
-        {
-            const id_user = random(51,99);
-            const id_product = random(1,100);
-            const startDate = new Date();
-            const endDate = new Date();
-            await connection.query(
-                `
+    for (let i = 0; i < books; i++) {
+      const id_user = random(51, 99);
+      const id_product = random(1, 100);
+      const startDate = new Date();
+      const endDate = new Date();
+      await connection.query(
+        `
                 insert into deal (id_user, id_product, accepted, price)
                 values(?,?,?,?)
                 `,
-                [id_user,id_product,true, random(0,999)]
-            );
-        }
-       /*
+        [id_user, id_product, true, random(0, 999)]
+      );
+    }
+    /*
         const [productes] = await connection.query(
             `
             select id
@@ -209,26 +218,23 @@ async function main() {
             [2]
         );
         */ //Pruebas borrado usuario
-
-
-    } catch (error) {
-        console.error(error);
-    } finally {
-        if (connection) connection.release();
-        process.exit();
-    }
+  } catch (error) {
+    console.error(error);
+  } finally {
+    if (connection) connection.release();
+    process.exit();
+  }
 }
 
 async function defineDB() {
-    try {
-
-        await connection.query("drop table if exists ratingTable");
-        await connection.query("drop table if exists deal");
-        await connection.query("drop table if exists product");
-        await connection.query("drop table if exists user");
-        console.log("hola");
-        await connection.query(
-            `
+  try {
+    await connection.query("drop table if exists ratingTable");
+    await connection.query("drop table if exists deal");
+    await connection.query("drop table if exists product");
+    await connection.query("drop table if exists user");
+    console.log("hola");
+    await connection.query(
+      `
                 create table user (
                 id integer unsigned auto_increment,
                 name varchar(50) not null,
@@ -248,10 +254,10 @@ async function defineDB() {
             );
             
             `
-        );
+    );
 
-        await connection.query(
-            `
+    await connection.query(
+      `
                 create table if not exists product (
                 id integer unsigned auto_increment,
                 id_user integer unsigned,
@@ -266,10 +272,10 @@ async function defineDB() {
             );
             
             `
-        );
+    );
 
-        await connection.query(
-            `
+    await connection.query(
+      `
                 create table if not exists deal (
                 id integer unsigned auto_increment,
                 id_user integer unsigned,
@@ -284,10 +290,10 @@ async function defineDB() {
                 constraint deal_id_product_fk2 foreign key (id_product) references product(id) on delete cascade on update cascade
             );
             `
-        );
+    );
 
-        await connection.query(
-            `
+    await connection.query(
+      `
                 create table if not exists ratingTable (
                 id integer unsigned auto_increment,
                 id_deal integer unsigned,
@@ -299,13 +305,10 @@ async function defineDB() {
                 constraint ratingTable_id_product_fk1 foreign key (id_product) references product(id) on delete cascade on update cascade
             );
             `
-        );
-    } catch (error) {
-        console.error(error);
-    }
-
-
+    );
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 main();
-

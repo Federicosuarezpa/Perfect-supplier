@@ -88,7 +88,7 @@ export default function LoginForm(props) {
               <label htmlFor="name">Nombre del producto</label>
               <input
                 id="name"
-                autocomplete="off"
+                autoComplete="off"
                 name="name"
                 placeholder="Introduzca el nombre"
                 ref={register({ required: true })}

@@ -18,8 +18,6 @@ export default function Profile(props) {
       const dataInfo = await getProductInfo(window.location.pathname.split('/')[2]);
       dataInfo.message[0].price = dataInfo.message[0].price + ' €';
       setData(dataInfo);
-      console.log(dataInfo.message[0].photo.data);
-      console.log(dataInfo);
     }
 
     useEffect(() => {

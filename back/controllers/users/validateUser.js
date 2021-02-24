@@ -8,6 +8,7 @@ const validateUser = async (req, res, next) => {
 
     const { registrationCode } = req.params;
 
+    console.log(registrationCode);
     const [user] = await connection.query(
       `
             select id
@@ -16,8 +17,9 @@ const validateUser = async (req, res, next) => {
             `,
       [registrationCode]
     );
-    console.log(user.lenght);
-    if (user.lenght === undefined) {
+
+    console.log(user[0]);
+    if (user[0] === undefined) {
       const error = new Error(
         "No existe ningún usuario con ese código por validar"
       );

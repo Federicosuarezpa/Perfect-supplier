@@ -19,6 +19,7 @@ import ProductInfo from './pages/ProductInfo';
 import Buys from './pages/Buys';
 import EditProduct from './pages/EditProduct';
 import Validate from './pages/Validateuser';
+import NotFound from './pages/NotFound';
 function App() {
   return (
     <Router>
@@ -102,6 +103,7 @@ function App() {
           <Route exact path="/user/validate/:id">
             <Validate></Validate>
           </Route>
+          <Route component={NotFound}></Route>
         </Switch>
       </AuthProvider>
     </Router>

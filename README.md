@@ -95,7 +95,7 @@ Example of login from postman:
 * [Node](https://nodejs.org/en/) - Used to do the backend.
 * [mysql](https://www.mysql.com/) - The database software used.
 
- ## Authors ✒️
+ ## Author ✒️
  * **Federico Hernán Suárez Palavecino** - [Federicosuarezpa](https://github.com/Federicosuarezpa)
 
 

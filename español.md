@@ -69,5 +69,5 @@ _npm run dev_
 * [Node](https://nodejs.org/en/) - Utilizado para el backend.
 * [mysql](https://www.mysql.com/) - El software de base de datos utilizado.
 
- ## Autores ✒️
+ ## Autor ✒️
  * **Federico Hernán Suárez Palavecino** - [Federicosuarezpa](https://github.com/Federicosuarezpa)

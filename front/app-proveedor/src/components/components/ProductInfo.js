@@ -1,4 +1,3 @@
-import { useForm } from 'react-hook-form';
 import { useState, useEffect } from 'react';
 import profile from '../../svg/caja.svg';
 import '../../stylesPages/infoProduct.css';
@@ -7,9 +6,8 @@ import useAuth from '../../shared/hooks/useAuth';
 import { useHistory } from 'react-router-dom';
 
 export default function Profile(props) {
-  const { register, handleSubmit } = useForm();
-  const [errorMessage, setErrorMessage] = useState('');
-  const [statusMessage, setstatusMessage] = useState('');
+  const [errorMessage] = useState('');
+  const [statusMessage] = useState('');
   const [data, setData] = useState();
   const { isUserLogged } = useAuth();
   const history = useHistory();

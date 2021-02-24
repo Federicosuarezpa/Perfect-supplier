@@ -10,6 +10,8 @@
   box-shadow: -15px 10px 33px -2px rgba(0, 0, 0, 0.75);
   display: flex;
   border-radius: 5px;
+  min-height: 80vh;
+  overflow: scroll;
 }
 select {
   display: block;
@@ -25,6 +27,132 @@ select:focus {
   border-radius: 10px;
   transition: 2s ease;
   outline: 0;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  background: #bdc3c7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2c3e50,
+    #9ea8af
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue',
+    Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+.container {
+  min-height: 100vh;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+img {
+  width: 80%;
+}
+li.item {
+  width: calc(27% - 2rem);
+  height: 10rem;
+  margin: 2rem;
+  background-color: #ffffff;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 4rem;
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+}
+li.itemProduct {
+  width: calc(22% - 2rem);
+
+  height: 15rem;
+  margin: 2rem;
+  margin-top: 10rem;
+  background-color: #ffffff;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 4rem;
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+li:hover {
+  box-shadow: 10px 14px 45px rgba(0, 0, 0, 0.1);
+}
+
+li .item-image {
+  position: relative;
+
+  font-size: 5rem;
+  text-align: center;
+}
+
+li .item-detail {
+  overflow: hidden;
+  padding: 0 1rem;
+  left: 0px;
+  top: 100%;
+  position: absolute;
+  height: 50px;
+  line-height: 50px;
+  width: 100%;
+  background-color: #290f0f;
+  font-size: 1rem;
+  font-weight: strong;
+}
+b {
+  float: left;
+  font-weight: bold;
+}
+em {
+  float: right;
+  color: #666;
+}
+
+li .item-detail:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+li a {
+  font-size: 1rem;
+  text-decoration: none;
+  color: #666;
+}
+
+li div {
+  position: absolute;
+}
+
+@media screen and (max-width: 68.125em) {
+  li.item {
+    width: 41%;
+  }
+  li.itemProduct {
+    width: 41%;
+  }
+}
+
+@media screen and (max-width: 46.125em) {
+  li.item {
+    width: 80%;
+  }
+  li.itemProduct {
+    width: 80%;
+  }
 }
 @media screen and (max-width: 360px) {
   .recuadroProduct {

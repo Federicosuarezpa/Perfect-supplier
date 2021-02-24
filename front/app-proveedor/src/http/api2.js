@@ -1,6 +1,6 @@
 const apiUrl = 'http://localhost:3000';
 
-const requestMethods = { post: 'POST', get: 'GET', put: 'PUT' };
+const requestMethods = { post: 'POST', get: 'GET', put: 'PUT', delete: 'DELETE' };
 
 const endPoints = {
   login: '/login',
@@ -42,6 +42,40 @@ export async function updateInfo(data, id) {
     body,
   });
 }
+export async function getProducts() {
+  return await fetchb2bApi(`/all`, {
+    method: requestMethods.get,
+  });
+}
+export async function getProductInfo(id) {
+  const data = await fetchb2bApi(`/all/${id}`, {
+    method: requestMethods.get,
+  });
+  return data;
+}
+export async function modifyProduct(id, id_product, data) {
+  const body = new FormData();
+  body.append('name', data.nombre);
+  body.append('location', data.city);
+  body.append('description', data.bio);
+  body.append('price', data.price);
+  body.append('category', data.category);
+  body.append('photo', data.foto[0]);
+  const message = await fetchFormData(`/profile/${id}/all/${id_product}`, {
+    method: requestMethods.put,
+    body,
+  });
+  console.log(message);
+  return message;
+}
+export async function deleteProduct(id, id_product) {
+  console.log(id, id_product);
+  const path = `/profile/${id}/all/${id_product}`;
+  console.log(path);
+  await fetchb2bApi(path, {
+    method: requestMethods.delete,
+  });
+}
 export async function login(email, password, confirmPassword) {
   const tokenData = await fetchb2bApi(endPoints.login, {
     method: requestMethods.post,
@@ -63,8 +97,34 @@ export async function getUserInfo(id) {
   });
   return userDat;
 }
+export async function validateUser(codigo) {
+  const message = await fetchb2bApi(`/user/validate/${codigo}`, {
+    method: requestMethods.get,
+  });
+  console.log(message);
+  return message;
+}
+export async function newProduct(data, id) {
+  const body = new FormData();
+  body.append('location', data.location);
+  body.append('description', data.description);
+  body.append('price', data.price);
+  body.append('name', data.name);
+  body.append('category', data.category);
+  body.append('photo', data.foto[0]);
+  return await fetchFormData(`/profile/${id}/newProduct`, {
+    method: requestMethods.post,
+    body,
+  });
+}
+export async function getProductsPosted(id) {
+  const userDat = await fetchb2bApi(`/profile/${id}/products`, {
+    method: requestMethods.get,
+  });
+  console.log(userDat);
+  return userDat;
+}
 export async function resetPass(recoverCode, newPassword, confirmPass) {
-  console.log(recoverCode, newPassword, confirmPass);
   return await fetchb2bApi(endPoints.resetPass, {
     method: requestMethods.post,
     body: {

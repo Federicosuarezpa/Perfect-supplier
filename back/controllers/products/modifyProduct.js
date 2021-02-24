@@ -2,43 +2,47 @@ const getDB = require("../../dbConnection");
 const { savePhoto } = require("../../helpers");
 
 const modifyProduct = async (req, res, next) => {
-    let connection;
+  let connection;
 
-    try {
-        connection = getDB();
-        
-        const { location, description, price, name, category} = req.body;
+  try {
+    connection = await getDB();
 
-        const { id } = req.params;
+    const { location, description, price, name, category } = req.body;
 
-        if (!location || !description || !price || !name || !category )
-        {
-            const error = new Error("Faltan campos");
-            error.httpStatus = 400;
-            throw error;
-        }
+    const { id } = req.params;
 
-        if (Object.keys(req.files).length === 0 || !req.files )
-        {
-            const error = new Error("Falta agregar una foto");
-            error.httpStatus = 400;
-            throw error;
-        }
-        const photo = await savePhoto(req.files.photo);
-        await connection.query(
-            `
-            update product
-            set location = ? and description = ? and price = ? and name = ? and category = ?
-            where id = ?
-            `,
-            [location,description,price,name,category,id]
-        );
-
-    } catch (error) {
-        next(error);
-    } finally {
-        if (connection) connection.release();
+    console.log(location, description, price, name, category, req.files.photo);
+    if (!location || !description || !price || !name || !category) {
+      const error = new Error("Faltan campos");
+      error.httpStatus = 400;
+      throw error;
     }
-}
+
+    if (Object.keys(req.files).length === 0 || !req.files) {
+      await connection.query(
+        `
+                  update product
+                  set location = ?, description = ?,  price = ?,  name = ?,  category = ?
+                  where id = ?
+                  `,
+        [location, description, price, name, category, id]
+      );
+    } else {
+      const photo = await savePhoto(req.files.photo);
+      await connection.query(
+        `
+                  update product
+                  set location = ?, description = ?,  price = ?,  name = ?,  category = ?,  photo = ?
+                  where id = ?
+                  `,
+        [location, description, price, name, category, photo, id]
+      );
+    }
+  } catch (error) {
+    next(error);
+  } finally {
+    if (connection) connection.release();
+  }
+};
 
 module.exports = modifyProduct;

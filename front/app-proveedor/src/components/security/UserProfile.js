@@ -1,4 +1,4 @@
-import useAuth from '../shared/hooks/useAuth';
+import useAuth from '../../shared/hooks/useAuth';
 import { Redirect } from 'react-router-dom';
 export default function UserNotLogged({ children }) {
   const { userData } = useAuth();

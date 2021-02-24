@@ -1,9 +1,8 @@
-import ProfileInfo from '../components/Profile';
+import ProfileInfo from '../components/components/Profile';
 import useAuth from '../shared/hooks/useAuth';
 import '../stylesPages/Profile.css';
 
-export default function Login() {
+export default function Profile() {
   const { updateInfoUser } = useAuth();
-  //console.log(window.location.pathname.split('/')[2]);
   return <ProfileInfo onSubmit={updateInfoUser}></ProfileInfo>;
 }

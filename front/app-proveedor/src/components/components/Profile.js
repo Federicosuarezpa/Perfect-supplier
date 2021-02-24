@@ -1,37 +1,23 @@
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
-import profile from '../svg/caja.svg';
+import { useState, useEffect } from 'react';
+import profile from '../../svg/profile-user.svg';
 import { Link } from 'react-router-dom';
-import useAuth from '../shared/hooks/useAuth';
-import '../stylesPages/newProduct.css';
-export default function LoginForm(props) {
+import useAuth from '../../shared/hooks/useAuth';
+import { getUserInfo } from '../../http/api2';
+export default function Profile(props) {
   const { register, handleSubmit } = useForm();
   const [errorMessage, setErrorMessage] = useState('');
   const [statusMessage, setstatusMessage] = useState('');
+  const [profileData, setProfileData] = useState(null);
   const { userData } = useAuth();
+  const onDelete = async () => {};
+  useEffect(() => {
+    getUserInfo(userData?.id).then((data) => {
+      setProfileData(data);
+    });
+    console.log(String.fromCharCode.apply(null, profileData?.data?.photo?.data));
+  }, []);
 
-  const categorys = () => {
-    const category = ['Tecnología', 'Ocio', 'Cocina', 'Limpieza', 'Baño', 'Actualidad', 'Revista', 'Libro'];
-    const listCategory = category.map((item) => <option value={item}>{item}</option>);
-    return <>{listCategory}</>;
-  };
-  const cities = () => {
-    const cities = [
-      'Barcelona',
-      'Madrid',
-      'Tarragona',
-      'Malaga',
-      'Lleida',
-      'Zaragoza',
-      'Asturias',
-      'Coruña',
-      'Vigo',
-      'Lugo',
-      'Valladolid',
-    ];
-    const listCities = cities.map((item) => <option value={item}>{item}</option>);
-    return <>{listCities}</>;
-  };
   const onSubmit = async (data) => {
     try {
       const serverResponse = await props.onSubmit(data);
@@ -55,18 +41,19 @@ export default function LoginForm(props) {
 
   return (
     <div className="backgroundProfile">
-      <div className="recuadroProduct">
+      <div className="recuadroProfile">
         <div className="panel">
-          <Link to={`/profile/${userData?.id}`}>
-            <p className="opcion">Información personal</p>
+          <Link>
+            <p className="selected opcion">Información personal</p>
           </Link>
           <Link to={`/profile/${userData?.id}/newProduct`}>
-            <p className="selected opcion">Añadir Producto</p>
+            <p className="opcion">Añadir Producto</p>
           </Link>
-          <Link>
-            <p className="opcion">Reservas</p>
+          <Link to={`/profile/${userData?.id}/buy`}>
+            <p className="opcion">Compras realizadas</p>
           </Link>
-          <Link>
+
+          <Link to={`/profile/${userData?.id}/all`}>
             <p className="opcion">Productos publicados</p>
           </Link>
         </div>
@@ -76,54 +63,60 @@ export default function LoginForm(props) {
             <div className="dropdown-content">
               <Link to={`/profile/${userData?.id}`}>Información personal</Link>
               <Link to={`/profile/${userData?.id}/newProduct`}>Añadir Producto</Link>
-              <Link>Reservas</Link>
-              <Link>Productos publicados</Link>
+              <Link to={`/profile/${userData?.id}/buy`}>Compras realizadas</Link>
+              <Link Link to={`/profile/${userData?.id}/all`}>
+                Productos publicados
+              </Link>
             </div>
           </div>
           <div className="infoUser">
             <form onSubmit={handleSubmit(onSubmit)}>
-              <h1>Publicar Producto</h1>
-              <img src={profile} className="profile" alt="website logo" />
+              <h1>Información Personal</h1>
+              {!profileData?.data?.photo && <img src={profile} className="profile" alt="website logo" />}
+              {profileData?.data?.photo && (
+                <img
+                  src={`http://localhost:3000/uploads/${String.fromCharCode.apply(
+                    null,
+                    profileData?.data?.photo?.data
+                  )}`}
+                  alt=""
+                  className="profilePhoto"
+                ></img>
+              )}
 
-              <label htmlFor="nombre">Nombre del producto</label>
+              <label htmlFor="nombre">Nombre</label>
               <input
                 id="nombre"
-                autocomplete="off"
                 name="nombre"
                 placeholder="Introduzca el nombre"
+                defaultValue={profileData?.data?.name}
                 ref={register({ required: true })}
               />
-              <label htmlFor="category">Categoría</label>
-              <select id="category" name="category" ref={register()}>
-                {categorys()}
-              </select>
-              <label htmlFor="ciudad">Ciudad</label>
-              <select id="ciudad" name="ciudad" ref={register()}>
-                {cities()}
-              </select>
-              <label htmlFor="email">Precio en €</label>
+              <label htmlFor="email">Email</label>
               <input
                 id="email"
-                type="number"
-                min="1"
                 name="email"
-                autoComplete="off"
-                placeholder="Introduzca el precio"
+                defaultValue={profileData?.data?.email}
+                placeholder="Introduzca el email"
                 ref={register({ required: true })}
               />
-              <label htmlFor="description">Descripción</label>
+              <label htmlFor="bio">Bio</label>
               <textarea
                 htmlFor="textarea"
                 rows="10"
                 cols="40"
-                id="description"
-                name="description"
-                placeholder="Escriba una breve descripción del producto..."
+                id="bio"
+                defaultValue={profileData?.data?.bio}
+                name="bio"
+                placeholder="Escriba un comentario..."
                 ref={register()}
               ></textarea>
               <input className="fotoInput" type="file" name="foto" id="foto" ref={register()} />
-              <input className="botonLogin" type="submit" value="Publicar Producto" />
+              <input className="botonLogin" type="submit" value="Actualizar Información" />
               <hr></hr>
+              <h4 className="registrado" onClick={onDelete}>
+                Borrar cuenta
+              </h4>
               {statusMessage.length > 0 && <p className="status-ok">{statusMessage}</p>}
               {errorMessage.length > 0 && <p className="error">{errorMessage}</p>}
             </form>

@@ -18,7 +18,7 @@ const {
   deleteProduct,
   getProducts,
   modifyProduct,
-  voteProduct,
+  productInfo,
 } = require("./controllers/products");
 const {
   resetPass,
@@ -79,11 +79,12 @@ app.post("/user/:id/all/:id_product/book", isUser, userExists, bookProduct);
 /** */
 app.get("/user/:id/all", isUser, userExists, getProducts);
 /** */
+app.get("/all/:id_product", productInfo);
 app.get("/user/:id/all/:id_product", isUser, userExists, getProducts);
 /**Ver todos los productos con filtros y recomendaciones*/
 app.get("/all", getProducts);
-/**Falta agregar apartado de voto, eliminar reserva, etc */
-/**Filtros y recomendaciones y middlewares de que el producto exista, en una tarde se hace */
+app.put("/profile/:id_user/all/:id", modifyProduct);
+app.delete("/profile/:id_user/all/:id", deleteProduct);
 app.use((error, req, res, next) => {
   console.error(error);
   res.status(error.httpStatus || 500).send({

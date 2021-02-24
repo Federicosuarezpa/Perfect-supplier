@@ -1,17 +1,16 @@
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
-import profile from '../svg/profile-user.svg';
-
-export default function LoginForm(props) {
+import profile from '../../svg/profile-user.svg';
+export default function Reset(props) {
   const { register, handleSubmit } = useForm();
   const [errorMessage, setErrorMessage] = useState('');
   const [statusMessage, setstatusMessage] = useState('');
 
   const onSubmit = async (data) => {
     try {
-      const serverResponse = await props.onSubmit(data.name, data.email, data.password, data.confirmPassword);
+      //como pasar checkbox
+      const serverResponse = await props.onSubmit(data.token, data.password, data.confirmPassword);
       if (errorMessage.length > 0) {
         setErrorMessage('');
       }
@@ -29,14 +28,17 @@ export default function LoginForm(props) {
       <div className="recuadro">
         <div className="login">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <h1>Registrarse</h1>
-            <a target="_blank" rel="noopener noreferrer" href="/register">
+            <h1>Recuperar contraseña</h1>
+            <a target="_blank" rel="noopener noreferrer" href="/login">
               <img src={profile} className="profile" alt="website logo" />
             </a>
-            <label htmlFor="name">Nombre</label>
-            <input id="name" name="name" placeholder="Introduzca el nombre" ref={register({ required: true })} />
-            <label htmlFor="email">Email</label>
-            <input id="email" name="email" placeholder="Introduzca el email" ref={register({ required: true })} />
+            <label htmlFor="token">Código de recuperación</label>
+            <input
+              id="token"
+              name="token"
+              placeholder="Introduzca el código de recuperación"
+              ref={register({ required: true })}
+            />
             <label htmlFor="password">Contraseña</label>
             <input
               id="password"
@@ -55,8 +57,8 @@ export default function LoginForm(props) {
             ></input>
             <input className="botonLogin" type="submit" />
             <hr></hr>
-            <Link className="registrado" to="/login">
-              ¿Ya está registrado?
+            <Link className="forgot" to="/login">
+              Volver al inicio de sesión
             </Link>
             {statusMessage.length > 0 && <p className="status-ok">{statusMessage}</p>}
             {errorMessage.length > 0 && <p className="error">{errorMessage}</p>}

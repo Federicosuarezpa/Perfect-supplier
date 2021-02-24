@@ -146,7 +146,11 @@ nav .logo:hover {
   text-align: center;
   flex-direction: column;
 }
-
+.imagen {
+  width: auto;
+  height: 10rem;
+  transform: translate(0%, 20%);
+}
 .footer-content h1 {
   font-size: 2rem;
   margin-top: 2.5rem;
@@ -195,7 +199,18 @@ textarea {
   font-size: 1.3rem;
   height: 10vh;
 }
-
+.nombreItem {
+  color: white;
+}
+.validatePage {
+  background-color: white;
+  border: 1px solid black;
+  height: 10vh;
+  width: 50%;
+}
+.data {
+  margin: 2rem;
+}
 @media screen and (max-width: 874px) {
   * {
     font-size: 13px;

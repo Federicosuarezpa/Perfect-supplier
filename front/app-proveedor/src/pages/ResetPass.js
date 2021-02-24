@@ -1,8 +1,8 @@
-import Reset from '../components/ResetPass';
+import Reset from '../components/components/ResetPass';
 import useAuth from '../shared/hooks/useAuth';
 import '../stylesPages/LoginRegister.css';
 
-export default function Login() {
+export default function ResetPass() {
   const { resetPassword } = useAuth();
   return <Reset onSubmit={resetPassword}></Reset>;
 }

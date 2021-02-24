@@ -1,7 +1,8 @@
 .backgroundProfile {
   background-image: url('../images/profileImage.jpg');
   background-color: #cccccc;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -9,8 +10,8 @@
   z-index: 99;
 }
 .recuadroProfile {
-  width: 70%;
-  height: 70%;
+  width: 80%;
+  height: 80%;
   position: absolute;
   background-color: white;
   top: 50%;

@@ -12,8 +12,10 @@ const getProducts = require("./getProducts");
 const bookProduct = require("./bookProduct");
 const deleteProduct = require("./deleteProduct");
 const voteProduct = require("./voteProduct");
+const productInfo = require("./productInfo");
 
 module.exports = {
+    productInfo,
     voteProduct,
     bookProduct,
     deleteProduct,

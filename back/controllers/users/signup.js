@@ -60,7 +60,7 @@ const newUser = async (req, res, next) => {
     const registrationCode = generateRandomString(40);
 
     const emailBody = `Te acabas de registrar en nombrepordeterminar.
-        Pulsa en este link para validar tu email: ${process.env.PUBLIC_HOST}/user/validate/${registrationCode}`;
+        Pulsa en este link para validar tu email: http://localhost:3001/user/validate/${registrationCode}`;
 
     await sendMail({
       to: email,

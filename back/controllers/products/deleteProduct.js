@@ -3,63 +3,62 @@ const { deletePhoto } = require("../../helpers");
 /**Mirar como borrar foto */
 
 const deleteProduct = async (req, res, next) => {
-    let connection;
+  let connection;
 
-    try {
-        connection = getDB();
+  try {
+    connection = await getDB();
 
-        const { id } = req.params;
-
-        const [info] = await connection.query (
-            `
+    const { id } = req.params;
+    console.log("hola");
+    const [info] = await connection.query(
+      `
             select id, photo
             from product
             where id=?
             `,
-            [id]
-        );
+      [id]
+    );
 
-        if (info.lenght === 0) {
-            const error = new Error("No existe la entrada");
-            error.httpStatus = 400;
-            throw error;
-        }
+    if (info.lenght === 0) {
+      const error = new Error("No existe la entrada");
+      error.httpStatus = 400;
+      throw error;
+    }
 
-        const [reservas] = await connection.query (
-            `
+    const [reservas] = await connection.query(
+      `
             select id
             from deal
             where id_product = ? and completed = 1
             `,
-            [id, new Date()]
-        );
+      [id, new Date()]
+    );
 
-        if (reservas.lenght > 0)
-        {
-            const error = new Error("Por favor, le quedan reservas pendientes de servir, no puede eliminar el producto aún");
-            error.httpStatus = 400;
-            throw error;
-        }
+    if (reservas.lenght > 0) {
+      const error = new Error(
+        "Por favor, le quedan reservas pendientes de servir, no puede eliminar el producto aún"
+      );
+      error.httpStatus = 400;
+      throw error;
+    }
 
-        await deletePhoto(info.photo);
-
-        await connection.query (
-            `
+    await connection.query(
+      `
             delete
             from product
             where id = ?
             `,
-            [id]
-        );
-        res.send({
-            status:"ok",
-            message:"El producto ha sido eliminado con éxito",
-        });
-    } catch (error) {
-        next(error);
-    } finally {
-        if (connection) connection.release();
-    }
-}
+      [id]
+    );
+    res.send({
+      status: "ok",
+      message: "El producto ha sido eliminado con éxito",
+    });
+  } catch (error) {
+    next(error);
+  } finally {
+    if (connection) connection.release();
+  }
+};
 
 module.exports = deleteProduct;

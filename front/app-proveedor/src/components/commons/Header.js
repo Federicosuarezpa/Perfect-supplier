@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import useAuth from '../shared/hooks/useAuth';
-import UserLogged from './LogedUser';
-import UserNotLogged from './NotUserLogged';
+import useAuth from '../../shared/hooks/useAuth';
+import UserLogged from '../security/LogedUser';
+import UserNotLogged from '../security/NotUserLogged';
 
 export default function Header() {
   const { signOut } = useAuth();
@@ -43,6 +43,7 @@ export default function Header() {
         <p className=" op">☰</p>
         <div className="dropdown-content">
           <Link to="/">Inicio</Link>
+          <Link to="/all">Productos</Link>
           <UserLogged>
             <Link to={profile}>Perfil</Link>
             <Link className="links" to="/" onClick={signOut}>

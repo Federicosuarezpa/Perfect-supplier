@@ -1,4 +1,4 @@
-import useAuth from '../shared/hooks/useAuth';
+import useAuth from '../../shared/hooks/useAuth';
 
 export default function UserLogged({ children }) {
   const { isUserLogged } = useAuth();

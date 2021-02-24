@@ -6,6 +6,7 @@ import { login } from '../../http/api2';
 import { signUpApi } from '../../http/api2';
 import { recover, resetPass } from '../../http/api2';
 import { updateInfo } from '../../http/api2';
+import { deleteProduct } from '../../http/api2';
 
 // 1 Creamos el contexto y exportamos para usar en el hook
 export const AuthContext = React.createContext();
@@ -63,14 +64,19 @@ export function AuthProvider({ children }) {
     return message;
   };
   const updateInfoUser = async (data) => {
-    const message = await updateInfo(data, userData.id);
+    const message = await updateInfo(data, userData?.id);
     return message;
   };
-
+  const deleteProducts = async (id_product) => {
+    console.log(id_product);
+    await deleteProduct(userData?.id, id_product);
+    history.push(`/profile/${userData?.id}/all`);
+  };
   // 4 devolvemos el provider metiendole dentro los children
   return (
     <AuthContextProvider
       value={{
+        deleteProducts,
         token,
         updateInfoUser,
         userData,

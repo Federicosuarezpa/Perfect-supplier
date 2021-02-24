@@ -1,6 +1,6 @@
-import logoTwitter from '../svg/twitter.svg';
-import logoLinkedin from '../svg/linkedin.svg';
-import logoGithub from '../svg/github.svg';
+import logoTwitter from '../../svg/twitter.svg';
+import logoLinkedin from '../../svg/linkedin.svg';
+import logoGithub from '../../svg/github.svg';
 
 export default function Footer() {
   return (

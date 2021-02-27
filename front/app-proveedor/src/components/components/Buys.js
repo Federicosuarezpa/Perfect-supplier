@@ -2,10 +2,46 @@ import profile from '../../svg/caja.svg';
 import { Link } from 'react-router-dom';
 import useAuth from '../../shared/hooks/useAuth';
 import '../../stylesPages/newProduct.css';
+import { useState, useEffect } from 'react';
+import { getProductsPosted } from '../../http/api2';
+import '../../stylesPages/newProduct.css';
 
 export default function Buys(props) {
   const { userData } = useAuth();
+  function useFetch() {
+    const [data, setData] = useState([]);
+    async function getData() {
+      const data = await getProductsPosted(userData?.id);
+      const listCategory = data?.message?.products.map((item) => (
+        <Link to={`/profile/${userData?.id}/all/${item.id}`}>
+          <li class="itemProductUser">
+            <div className="item-image">
+              <img
+                className="imagen"
+                src={`http://localhost:3000/uploads/${String.fromCharCode.apply(null, item?.photo?.data)}`}
+                alt="productsUser"
+              ></img>
+            </div>
+            <div className="item-detail">
+              <p className="nombreItem">{item.name}</p>
+            </div>
+          </li>
+        </Link>
+      ));
 
+      setData(listCategory);
+    }
+
+    useEffect(() => {
+      getData();
+    }, []);
+    return (
+      <>
+        {' '}
+        <ul className="item-list-user">{data}</ul>
+      </>
+    );
+  }
   return (
     <div className="backgroundProfile">
       <div className="recuadroProduct">
@@ -37,6 +73,7 @@ export default function Buys(props) {
           </div>
           <h1>Productos Comprados</h1>
           <img src={profile} className="profile" alt="website logo" />
+          <div>{useFetch()}</div>
         </div>
       </div>
     </div>

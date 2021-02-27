@@ -5,10 +5,9 @@ const userProducts = async (req, res, next) => {
 
   try {
     connection = await getDB();
-    /**Falta agregar filtrados*/
     const [products] = await connection.query(
       `
-            select id, name, price,photo
+            select id, name, price,photo,location,category,id_user
             from product
             group by id
             `

@@ -9,6 +9,7 @@ const bookProduct = async (req, res, next) => {
 
     const { id_product } = req.params;
     const { price } = req.body;
+    console.log(id_product);
 
     if (!price) {
       const error = new Error("Faltan campos");
@@ -28,10 +29,11 @@ const bookProduct = async (req, res, next) => {
       `
             select id_user, name
             from product
-            where id_product = ?
+            where id = ?
             `,
       [id_product]
     );
+    console.log(user[0].id_user);
 
     const [email] = await connection.query(
       `
@@ -39,15 +41,15 @@ const bookProduct = async (req, res, next) => {
             from user
             where id = ?
             `,
-      [user.id_user]
+      [user[0].id_user]
     );
-
+    console.log(email[0].email);
     const emailBody = `
-        Un usuario acaba de hacer una reserva para el producto ${user.name}, por favor accede a su perfil y acepte o deniegue la petición
+        Un usuario acaba de hacer una reserva para el producto ${user[0].name}, por favor envíelo cuanto antes
         `;
 
     await sendMail({
-      to: email.email,
+      to: email[0].email,
       subject: "Nueva reserva",
       body: emailBody,
     });

@@ -43,9 +43,10 @@ export async function updateInfo(data, id) {
   });
 }
 export async function getProducts() {
-  return await fetchb2bApi(`/all`, {
+  const info = await fetchb2bApi(`/all`, {
     method: requestMethods.get,
   });
+  return info;
 }
 export async function getProductInfo(id) {
   const data = await fetchb2bApi(`/all/${id}`, {
@@ -65,13 +66,10 @@ export async function modifyProduct(id, id_product, data) {
     method: requestMethods.put,
     body,
   });
-  console.log(message);
   return message;
 }
 export async function deleteProduct(id, id_product) {
-  console.log(id, id_product);
   const path = `/profile/${id}/all/${id_product}`;
-  console.log(path);
   await fetchb2bApi(path, {
     method: requestMethods.delete,
   });
@@ -101,7 +99,6 @@ export async function validateUser(codigo) {
   const message = await fetchb2bApi(`/user/validate/${codigo}`, {
     method: requestMethods.get,
   });
-  console.log(message);
   return message;
 }
 export async function newProduct(data, id) {
@@ -121,7 +118,6 @@ export async function getProductsPosted(id) {
   const userDat = await fetchb2bApi(`/profile/${id}/products`, {
     method: requestMethods.get,
   });
-  console.log(userDat);
   return userDat;
 }
 export async function resetPass(recoverCode, newPassword, confirmPass) {
@@ -138,5 +134,13 @@ export async function signUpApi(name, email, password, confirmPassword) {
   return await fetchb2bApi(endPoints.registro, {
     method: requestMethods.post,
     body: { name, email, password, confirmPassword },
+  });
+}
+export async function buyProduct(id, price, id_product) {
+  return await fetchb2bApi(`/user/${id}/all/${id_product}/book`, {
+    method: requestMethods.post,
+    body: {
+      price,
+    },
   });
 }

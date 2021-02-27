@@ -1,26 +1,19 @@
 .photoLeft {
-  width: 60%;
-  height: auto;
+  width: 600px;
+  height: 400px;
+
+  line-height: 400px;
+  margin: 0px auto;
+  text-align: center;
 }
 .photoCenter {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 70%;
-  top: 50%;
-  margin-top: 10rem;
-  -ms-transform: translateY(-50%);
-  transform: translateY(20%);
+  vertical-align: middle;
+  transform: translate(0, 70%);
 }
 .infoRight {
   width: 40%;
   align-items: center;
   justify-content: center;
-}
-.infoProduct {
-  margin-left: auto;
-  margin-right: auto;
-  width: 70%;
 }
 textarea {
   display: block;
@@ -30,6 +23,9 @@ textarea {
   border: 1px solid rgb(255, 255, 255);
   font-size: 1.3rem;
   transition: 1s ease;
+}
+.infoProduct {
+  width: 90%;
 }
 .infoProduct input {
   display: block;
@@ -87,7 +83,7 @@ textarea[type='text']:disabled {
   border-radius: 5px;
 }
 .titleProduct {
-  margin-top: 7rem;
+  margin-top: 5rem;
 }
 @media screen and (max-width: 1100px) {
   .recuadroInfo {
@@ -96,6 +92,7 @@ textarea[type='text']:disabled {
   }
   .photoCenter {
     margin-top: 2rem;
+    transform: translate(0, 0);
   }
   .photoLeft {
     width: 100%;

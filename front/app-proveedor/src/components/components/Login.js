@@ -2,11 +2,12 @@ import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import profile from '../../svg/profile-user.svg';
 import { Link } from 'react-router-dom';
+import candado from '../../svg/candado.svg';
+import email from '../../svg/email.svg';
 export default function LoginForm(props) {
   const { register, handleSubmit } = useForm();
   const [errorMessage, setErrorMessage] = useState('');
   const [statusMessage, setstatusMessage] = useState('');
-
   const onSubmit = async (data) => {
     try {
       const serverResponse = await props.onSubmit(data.email, data.password, data.confirmPassword, data.cbox1);
@@ -32,6 +33,8 @@ export default function LoginForm(props) {
             </a>
             <label htmlFor="email">Email</label>
             <input id="email" name="email" placeholder="Introduzca el email" ref={register({ required: true })} />
+            <img src={email} className="key"></img>
+
             <label htmlFor="password">Contraseña</label>
             <input
               id="password"
@@ -40,6 +43,8 @@ export default function LoginForm(props) {
               placeholder="Introduzca la contraseña"
               ref={register({ required: true, minLength: 8 })}
             />
+            <img src={candado} className="key"></img>
+
             <label htmlFor="confirmPassword">Confirma la contraseña</label>
             <input
               id="confirmPassword"
@@ -48,6 +53,8 @@ export default function LoginForm(props) {
               placeholder="Confirme la contraseña"
               ref={register({ required: true, minLength: 8 })}
             ></input>
+            <img src={candado} className="key"></img>
+
             <label className="radio" htmlFor="cbox1">
               <input className="radio2" name="cbox1" type="checkbox" id="cbox1" ref={register()} />
               Recordar contraseña

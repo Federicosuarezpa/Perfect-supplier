@@ -64,7 +64,7 @@ img {
   width: 80%;
 }
 li.item {
-  width: calc(27% - 2rem);
+  width: calc(33.33% - 4rem);
   height: 10rem;
   margin: 2rem;
   background-color: #ffffff;
@@ -74,8 +74,11 @@ li.item {
   border-radius: 4px 4px 0 0;
   box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
 }
+ul.item-list {
+  padding: 0;
+}
 li.itemProduct {
-  width: calc(22% - 2rem);
+  width: calc(25% - 4rem);
 
   height: 15rem;
   margin: 2rem;
@@ -87,9 +90,39 @@ li.itemProduct {
   border-radius: 4px 4px 0 0;
   box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
 }
+li.itemUser {
+  width: calc(33.33% - 4rem);
+  height: 10rem;
+  margin: 2rem;
+  background-color: #ffffff;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 4rem;
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+}
+li.itemProductUser {
+  width: calc(33.33% - 2rem);
+
+  height: 15rem;
+  margin: 1rem;
+  background-color: #ffffff;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 4rem;
+  border-radius: 4px 4px 0 0;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+}
+.item-list-user {
+  padding: 0;
+}
 
 li:hover {
   box-shadow: 10px 14px 45px rgba(0, 0, 0, 0.1);
+}
+img.imagen {
+  width: 90%;
+  object-fit: cover;
 }
 
 li .item-image {
@@ -100,7 +133,6 @@ li .item-image {
 }
 
 li .item-detail {
-  overflow: hidden;
   padding: 0 1rem;
   left: 0px;
   top: 100%;
@@ -118,7 +150,7 @@ b {
 }
 em {
   float: right;
-  color: #666;
+  color: white;
 }
 
 li .item-detail:after {
@@ -136,13 +168,25 @@ li a {
 li div {
   position: absolute;
 }
-
+@media screen and (max-width: 1250px) {
+  li.itemProductUser {
+    width: calc(50% - 2rem);
+  }
+  li.itemProduct {
+    width: calc(50% - 4rem);
+  }
+}
+@media screen and (max-width: 1400px) {
+  li.itemProduct {
+    width: calc(33.33% - 4rem);
+  }
+}
 @media screen and (max-width: 68.125em) {
   li.item {
     width: 41%;
   }
   li.itemProduct {
-    width: 41%;
+    width: calc(50% - 4rem);
   }
 }
 
@@ -151,7 +195,10 @@ li div {
     width: 80%;
   }
   li.itemProduct {
-    width: 80%;
+    width: calc(100% - 4rem);
+  }
+  li.itemProductUser {
+    width: calc(100% - 2rem);
   }
 }
 @media screen and (max-width: 360px) {

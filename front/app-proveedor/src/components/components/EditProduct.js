@@ -95,7 +95,7 @@ export default function Profile(props) {
               <input className="botonLogin" type="submit" value="Actualizar" />
               <hr></hr>
               <h4 className="registrado" onClick={onDelete}>
-                Borrar cuenta
+                Borrar producto
               </h4>
               {statusMessage.length > 0 && <p className="status-ok">{statusMessage}</p>}
               {errorMessage.length > 0 && <p className="error">{errorMessage}</p>}

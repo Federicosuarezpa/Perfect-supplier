@@ -13,21 +13,21 @@ export default function Products(props) {
       const data = await getProductsPosted(userData?.id);
       const listCategory = data?.message?.products.map((item) => (
         <Link to={`/profile/${userData?.id}/all/${item.id}`}>
-          <li class="item">
+          <li class="itemProductUser">
             <div className="item-image">
               <img
+                className="imagen"
                 src={`http://localhost:3000/uploads/${String.fromCharCode.apply(null, item?.photo?.data)}`}
                 alt="productsUser"
               ></img>
             </div>
             <div className="item-detail">
-              <p>{item.name}</p>
+              <p className="nombreItem">{item.name}</p>
             </div>
           </li>
         </Link>
       ));
 
-      console.log(listCategory);
       setData(listCategory);
     }
 
@@ -37,7 +37,7 @@ export default function Products(props) {
     return (
       <>
         {' '}
-        <ul className="item-list">{data}</ul>
+        <ul className="item-list-user">{data}</ul>
       </>
     );
   }

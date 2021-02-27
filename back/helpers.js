@@ -59,14 +59,14 @@ async function savePhoto(imageData) {
   const image = sharp(imageData.data);
 
   // Comprobar que la imagen no tenga un tamaño mayor a X pixeles de ancho
-  const imageInfo = await image.metadata();
+  /*const imageInfo = await image.metadata();
 
   // Si es mayor que ese tamaño redimensionarla a ese tamaño
   const IMAGE_MAX_WIDTH = 200;
   if (imageInfo.width > IMAGE_MAX_WIDTH) {
     image.resize(IMAGE_MAX_WIDTH);
   }
-
+  */
   // Generar un nombre único para la imagen
   const savedImageName = `${uuid.v4()}.jpg`;
 

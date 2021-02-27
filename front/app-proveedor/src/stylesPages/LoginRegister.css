@@ -79,11 +79,11 @@ h1 {
   text-align: center;
 }
 .login .radio {
+  position: relative;
   display: inline;
   margin: 0;
-  width: 10%;
+  width: 90%;
   height: 1rem;
-  margin: 0.2rem;
   margin-bottom: 1.5rem;
 }
 .login .radio2 {
@@ -93,7 +93,7 @@ h1 {
   height: 1rem;
   margin: 0.2rem;
   margin-bottom: 1.5rem;
-  transform: translate(-20%, 20%);
+  transform: translate(0%, 50%);
 }
 .forgot {
   display: block;

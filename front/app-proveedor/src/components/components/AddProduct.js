@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
 import profile from '../../svg/caja.svg';
+import { useState, useEffect } from 'react';
+
 import { Link } from 'react-router-dom';
 import useAuth from '../../shared/hooks/useAuth';
 import '../../stylesPages/newProduct.css';
@@ -9,8 +10,16 @@ export default function LoginForm(props) {
   const { register, handleSubmit } = useForm();
   const [errorMessage, setErrorMessage] = useState('');
   const [statusMessage, setstatusMessage] = useState('');
+  const [preview, setPreview] = useState();
+  const [selectedFile, setSelectedFile] = useState();
   const { userData } = useAuth();
-
+  const onSelectFile = (e) => {
+    if (!e.target.files || e.target.files.length === 0) {
+      setSelectedFile(undefined);
+      return;
+    }
+    setSelectedFile(e.target.files[0]);
+  };
   const categorys = () => {
     const category = ['Tecnología', 'Ocio', 'Cocina', 'Limpieza', 'Baño', 'Actualidad', 'Revista', 'Libro'];
     const listCategory = category.map((item) => <option value={item}>{item}</option>);
@@ -33,6 +42,16 @@ export default function LoginForm(props) {
     const listCities = cities.map((item) => <option value={item}>{item}</option>);
     return <>{listCities}</>;
   };
+  useEffect(() => {
+    if (!selectedFile) {
+      return;
+    }
+    const objectUrl = URL.createObjectURL(selectedFile);
+    setPreview(objectUrl);
+
+    // free memory when ever this component is unmounted
+    return () => URL.revokeObjectURL(objectUrl);
+  }, [selectedFile]);
   const onSubmit = async (data) => {
     try {
       const serverResponse = await newProduct(data, userData?.id);
@@ -83,9 +102,26 @@ export default function LoginForm(props) {
           <div className="infoUser">
             <form onSubmit={handleSubmit(onSubmit)}>
               <h1>Publicar Producto</h1>
-              <img src={profile} className="profile" alt="website logo" />
+              <div className="parent">
+                {!selectedFile && <img src={profile} className="profile" alt="website logo" />}
 
-              <label htmlFor="name">Nombre del producto</label>
+                {selectedFile && <img src={preview} alt="" className="image1"></img>}
+                <label className="textEdit">
+                  <input
+                    className="image1"
+                    type="file"
+                    name="foto"
+                    id="foto"
+                    ref={register()}
+                    onChange={onSelectFile}
+                  />
+                  Subir foto
+                </label>
+              </div>
+
+              <label className="nameUser" htmlFor="name">
+                Nombre del producto
+              </label>
               <input
                 id="name"
                 autoComplete="off"
@@ -121,7 +157,6 @@ export default function LoginForm(props) {
                 placeholder="Escriba una breve descripción del producto..."
                 ref={register({ required: true })}
               ></textarea>
-              <input className="fotoInput" type="file" name="foto" id="foto" ref={register({ required: true })} />
               <input className="botonLogin" type="submit" value="Publicar Producto" />
               <hr></hr>
               {statusMessage.length > 0 && <p className="status-ok">{statusMessage}</p>}

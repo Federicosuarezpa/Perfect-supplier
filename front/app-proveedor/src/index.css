@@ -200,8 +200,11 @@ textarea {
   height: 10vh;
 }
 .nombreItem {
+  overflow: hidden;
+  float: left;
   color: white;
 }
+
 .validatePage {
   background-color: white;
   border: 1px solid black;
@@ -211,6 +214,53 @@ textarea {
 .data {
   margin: 2rem;
 }
+em {
+  float: right;
+  color: white;
+}
+.key {
+  position: relative;
+  transform: translate(1600%, -250%);
+  height: 1rem;
+  width: 1rem;
+}
+.filter {
+  position: absolute;
+  height: 2rem;
+  width: 2rem;
+  margin-top: 5rem;
+  margin-left: 2rem;
+}
+.alineadoLeft {
+  float: left;
+  text-align: center;
+  display: flex;
+}
+.dropdown-content-filter {
+  display: none;
+  position: fixed;
+  float: left;
+  background-color: #f9f9f9;
+  width: 10rem;
+  box-shadow: -11px 15px 28px 0px rgba(0, 0, 0, 0.75);
+  transform: translate(40%, 60%);
+  z-index: 100;
+}
+.dropdown-content-filter a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content-filter a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content-filter {
+  display: block;
+}
+
 @media screen and (max-width: 874px) {
   * {
     font-size: 13px;

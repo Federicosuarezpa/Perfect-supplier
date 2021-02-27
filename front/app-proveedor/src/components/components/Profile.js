@@ -4,19 +4,40 @@ import profile from '../../svg/profile-user.svg';
 import { Link } from 'react-router-dom';
 import useAuth from '../../shared/hooks/useAuth';
 import { getUserInfo } from '../../http/api2';
+import { Rating } from '@material-ui/lab';
 export default function Profile(props) {
   const { register, handleSubmit } = useForm();
   const [errorMessage, setErrorMessage] = useState('');
   const [statusMessage, setstatusMessage] = useState('');
   const [profileData, setProfileData] = useState(null);
+  const [value, setValue] = useState();
+  const [disabled, setDisabled] = useState(false);
+  const [preview, setPreview] = useState();
+  const [selectedFile, setSelectedFile] = useState();
+
   const { userData } = useAuth();
+  const onSelectFile = (e) => {
+    if (!e.target.files || e.target.files.length === 0) {
+      setSelectedFile(undefined);
+      return;
+    }
+    setSelectedFile(e.target.files[0]);
+  };
+
   const onDelete = async () => {};
   useEffect(() => {
     getUserInfo(userData?.id).then((data) => {
       setProfileData(data);
     });
-    console.log(String.fromCharCode.apply(null, profileData?.data?.photo?.data));
-  }, []);
+    if (!selectedFile) {
+      return;
+    }
+    const objectUrl = URL.createObjectURL(selectedFile);
+    setPreview(objectUrl);
+
+    // free memory when ever this component is unmounted
+    return () => URL.revokeObjectURL(objectUrl);
+  }, [selectedFile]);
 
   const onSubmit = async (data) => {
     try {
@@ -72,19 +93,36 @@ export default function Profile(props) {
           <div className="infoUser">
             <form onSubmit={handleSubmit(onSubmit)}>
               <h1>Información Personal</h1>
-              {!profileData?.data?.photo && <img src={profile} className="profile" alt="website logo" />}
-              {profileData?.data?.photo && (
-                <img
-                  src={`http://localhost:3000/uploads/${String.fromCharCode.apply(
-                    null,
-                    profileData?.data?.photo?.data
-                  )}`}
-                  alt=""
-                  className="profilePhoto"
-                ></img>
-              )}
-
-              <label htmlFor="nombre">Nombre</label>
+              <div className="parent">
+                {!profileData?.data?.photo && !selectedFile && (
+                  <img src={profile} className="image1" alt="website logo" />
+                )}
+                {!selectedFile && profileData?.data?.photo && (
+                  <img
+                    src={`http://localhost:3000/uploads/${String.fromCharCode.apply(
+                      null,
+                      profileData?.data?.photo?.data
+                    )}`}
+                    alt=""
+                    className="image1"
+                  ></img>
+                )}
+                {selectedFile && <img src={preview} alt="" className="image1"></img>}
+                <label className="textEdit">
+                  <input
+                    className="image1"
+                    type="file"
+                    name="foto"
+                    id="foto"
+                    ref={register()}
+                    onChange={onSelectFile}
+                  />
+                  Editar
+                </label>
+              </div>
+              <label className="nameUser" htmlFor="nombre">
+                Nombre
+              </label>
               <input
                 id="nombre"
                 name="nombre"
@@ -111,12 +149,20 @@ export default function Profile(props) {
                 placeholder="Escriba un comentario..."
                 ref={register()}
               ></textarea>
-              <input className="fotoInput" type="file" name="foto" id="foto" ref={register()} />
               <input className="botonLogin" type="submit" value="Actualizar Información" />
               <hr></hr>
               <h4 className="registrado" onClick={onDelete}>
                 Borrar cuenta
               </h4>
+              <Rating
+                name="half-rating-read"
+                defaultValue={value}
+                precision={0.5}
+                onChange={(event, newValue) => {
+                  setValue(newValue);
+                }}
+                readOnly={disabled}
+              />
               {statusMessage.length > 0 && <p className="status-ok">{statusMessage}</p>}
               {errorMessage.length > 0 && <p className="error">{errorMessage}</p>}
             </form>

@@ -8,12 +8,16 @@ import useAuth from '../../shared/hooks/useAuth';
 import { useHistory } from 'react-router-dom';
 import estrella from '../../svg/estrella.svg';
 import { buyProduct } from '../../http/api2';
+import { getReviewValue } from '../../http/api2';
+import { Rating } from '@material-ui/lab';
 
 export default function Profile(props) {
   const { register, handleSubmit } = useForm();
+  const [rating, setRating] = useState();
   const [errorMessage] = useState('');
   const [statusMessage, setstatusMessage] = useState('');
   const [data, setData] = useState();
+  const [reviews, setReviews] = useState();
   const { isUserLogged, userData } = useAuth();
   const history = useHistory();
   function useFetch() {
@@ -21,6 +25,9 @@ export default function Profile(props) {
       const dataInfo = await getProductInfo(window.location.pathname.split('/')[2]);
       dataInfo.message[0].price = dataInfo.message[0].price + ' €';
       setData(dataInfo);
+      const review = await getReviewValue(window.location.pathname.split('/')[2]);
+      setRating(<Rating className="valoracionesEstrella" name="half-rating-read" value={review.sum} readOnly={true} />);
+      setReviews(<p className="valoraciones">{review.reviews} (valoracion/es)</p>);
     }
 
     useEffect(() => {
@@ -88,11 +95,8 @@ export default function Profile(props) {
               ></textarea>
               <input className="botonLogin" type="submit" value="Comprar" />
               <hr></hr>
-              <img src={estrella} className="star" alt="website logo" />
-              <img src={estrella} className="star" alt="website logo" />
-              <img src={estrella} className="star" alt="website logo" />
-              <img src={estrella} className="star" alt="website logo" />
-              <img src={estrella} className="star" alt="website logo" />
+              {reviews}
+              {rating}
 
               {statusMessage.length > 0 && <p className="status-ok">{statusMessage}</p>}
               {errorMessage.length > 0 && <p className="error">{errorMessage}</p>}

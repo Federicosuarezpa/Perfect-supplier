@@ -4,13 +4,11 @@ import profile from '../../svg/profile-user.svg';
 import { Link } from 'react-router-dom';
 import useAuth from '../../shared/hooks/useAuth';
 import { getUserInfo } from '../../http/api2';
-import { Rating } from '@material-ui/lab';
 export default function Profile(props) {
   const { register, handleSubmit } = useForm();
   const [errorMessage, setErrorMessage] = useState('');
   const [statusMessage, setstatusMessage] = useState('');
   const [profileData, setProfileData] = useState(null);
-  const [value, setValue] = useState();
   const [disabled, setDisabled] = useState(false);
   const [preview, setPreview] = useState();
   const [selectedFile, setSelectedFile] = useState();
@@ -154,15 +152,6 @@ export default function Profile(props) {
               <h4 className="registrado" onClick={onDelete}>
                 Borrar cuenta
               </h4>
-              <Rating
-                name="half-rating-read"
-                defaultValue={value}
-                precision={0.5}
-                onChange={(event, newValue) => {
-                  setValue(newValue);
-                }}
-                readOnly={disabled}
-              />
               {statusMessage.length > 0 && <p className="status-ok">{statusMessage}</p>}
               {errorMessage.length > 0 && <p className="error">{errorMessage}</p>}
             </form>

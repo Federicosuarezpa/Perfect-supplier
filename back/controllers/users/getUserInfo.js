@@ -17,7 +17,6 @@ const getUserInfo = async (req, res, next) => {
       [id]
     );
     const userInfo = {};
-    console.log(user[0].photo);
     if (user[0].id === req.userAuth.id) {
       userInfo.date = user[0].date;
       userInfo.email = user[0].email;

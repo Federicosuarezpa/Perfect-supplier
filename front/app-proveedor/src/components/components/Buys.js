@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../shared/hooks/useAuth';
 import '../../stylesPages/newProduct.css';
 import { useState, useEffect } from 'react';
-import { getProductsPosted } from '../../http/api2';
+import { productsBought } from '../../http/api2';
 import '../../stylesPages/newProduct.css';
 
 export default function Buys(props) {
@@ -11,9 +11,12 @@ export default function Buys(props) {
   function useFetch() {
     const [data, setData] = useState([]);
     async function getData() {
-      const data = await getProductsPosted(userData?.id);
-      const listCategory = data?.message?.products.map((item) => (
-        <Link to={`/profile/${userData?.id}/all/${item.id}`}>
+      let dataInfo = await productsBought(userData?.id);
+      let dataInfoProduct = dataInfo.message.infoProduct;
+      dataInfo = dataInfo.message.deals;
+      console.log(dataInfo[0].id);
+      const listCategory = dataInfoProduct.map((item, index) => (
+        <Link to={`/profile/${userData?.id}/buy/${item.id}/rate/${dataInfo[0].id}`}>
           <li class="itemProductUser">
             <div className="item-image">
               <img

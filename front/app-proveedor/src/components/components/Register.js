@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import candado from '../../svg/candado.svg';
 import email from '../../svg/email.svg';
 import user from '../../svg/user.svg';
-
+import { useHistory } from 'react-router-dom';
 import profile from '../../svg/profile-user.svg';
 
 export default function Register(props) {
@@ -15,6 +15,7 @@ export default function Register(props) {
   const [passWordConfirm, setPassWordConfirm] = useState('');
   const [message, setMessage] = useState('');
   const [confirm, setConfirm] = useState('');
+  const history = useHistory();
 
   const validatePass = () => {
     if (passwordOne.length < 8 && passwordOne.length > 0) setMessage('Debe tener al menos 8 carácteres');
@@ -38,6 +39,9 @@ export default function Register(props) {
       }
       if (serverResponse.message) {
         setstatusMessage(serverResponse.message);
+        setTimeout(() => {
+          history.push('/login');
+        }, 5000);
       }
     } catch (error) {
       setstatusMessage('');

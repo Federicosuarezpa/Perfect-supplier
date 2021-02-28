@@ -33,7 +33,6 @@ const bookProduct = async (req, res, next) => {
             `,
       [id_product]
     );
-    console.log(user[0].id_user);
 
     const [email] = await connection.query(
       `
@@ -43,7 +42,6 @@ const bookProduct = async (req, res, next) => {
             `,
       [user[0].id_user]
     );
-    console.log(email[0].email);
     const emailBody = `
         Un usuario acaba de hacer una reserva para el producto ${user[0].name}, por favor envíelo cuanto antes
         `;

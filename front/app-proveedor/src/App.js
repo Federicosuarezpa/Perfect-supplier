@@ -20,6 +20,7 @@ import Buys from './pages/Buys';
 import EditProduct from './pages/EditProduct';
 import Validate from './pages/Validateuser';
 import NotFound from './pages/NotFound';
+import ItemBuy from './pages/ItemBuy';
 function App() {
   return (
     <Router>
@@ -96,6 +97,14 @@ function App() {
             <AuthUser>
               <UserProfile>
                 <EditProduct></EditProduct>
+                <Footer></Footer>
+              </UserProfile>
+            </AuthUser>
+          </Route>
+          <Route exact path="/profile/:id/buy/:product_id/rate/:deal_id">
+            <AuthUser>
+              <UserProfile>
+                <ItemBuy></ItemBuy>
                 <Footer></Footer>
               </UserProfile>
             </AuthUser>

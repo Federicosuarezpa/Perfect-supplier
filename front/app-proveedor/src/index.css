@@ -260,6 +260,14 @@ em {
 .dropdown:hover .dropdown-content-filter {
   display: block;
 }
+.valoraciones {
+  margin: 1rem;
+  margin-left: 0;
+  margin-bottom: 0.1rem;
+}
+.valoracionesEstrella {
+  margin-top: 0;
+}
 
 @media screen and (max-width: 874px) {
   * {

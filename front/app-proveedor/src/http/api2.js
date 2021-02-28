@@ -144,3 +144,30 @@ export async function buyProduct(id, price, id_product) {
     },
   });
 }
+export async function productsBought(id) {
+  return await fetchb2bApi(`/profile/${id}/deals`, {
+    method: requestMethods.get,
+  });
+}
+export async function getRated(id_deal) {
+  return await fetchb2bApi(`/product/rate/${id_deal}`, {
+    method: requestMethods.get,
+  });
+}
+export async function voteProduct(id, id_deal, puntuation, review) {
+  console.log(puntuation, review);
+  return await fetchb2bApi(`/profile/${id}/product/${id_deal}/rate/value`, {
+    method: requestMethods.post,
+    body: {
+      puntuation,
+      review,
+    },
+  });
+}
+export async function getReviewValue(id_product) {
+  const value = await fetchb2bApi(`/product/${id_product}/rating`, {
+    method: requestMethods.get,
+  });
+  console.log(value);
+  return value;
+}

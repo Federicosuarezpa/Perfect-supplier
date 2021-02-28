@@ -19,6 +19,9 @@ const {
   getProducts,
   modifyProduct,
   productInfo,
+  getReview,
+  productRate,
+  voteProduct,
 } = require("./controllers/products");
 const {
   resetPass,
@@ -85,6 +88,10 @@ app.get("/user/:id/all/:id_product", isUser, userExists, getProducts);
 app.get("/all", getProducts);
 app.put("/profile/:id_user/all/:id", modifyProduct);
 app.delete("/profile/:id_user/all/:id", deleteProduct);
+app.get("/product/rate/:id_deal", getReview);
+app.get("/product/:id_product/rating", productRate);
+app.post("/profile/:id/product/:id_deal/rate/value", voteProduct);
+
 app.use((error, req, res, next) => {
   console.error(error);
   res.status(error.httpStatus || 500).send({

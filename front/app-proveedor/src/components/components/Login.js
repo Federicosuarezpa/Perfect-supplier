@@ -4,10 +4,23 @@ import profile from '../../svg/profile-user.svg';
 import { Link } from 'react-router-dom';
 import candado from '../../svg/candado.svg';
 import email from '../../svg/email.svg';
+import view from '../../svg/view.svg';
+import privateView from '../../svg/private.svg';
 export default function LoginForm(props) {
   const { register, handleSubmit } = useForm();
   const [errorMessage, setErrorMessage] = useState('');
+  const [viewIcon, setView] = useState(view);
+  const [typeView, setTypeView] = useState('password');
   const [statusMessage, setstatusMessage] = useState('');
+  const changeState = () => {
+    if (typeView === 'password') {
+      setView(privateView);
+      setTypeView('text');
+    } else {
+      setView(view);
+      setTypeView('password');
+    }
+  };
   const onSubmit = async (data) => {
     try {
       const serverResponse = await props.onSubmit(data.email, data.password, data.confirmPassword, data.cbox1);
@@ -38,22 +51,24 @@ export default function LoginForm(props) {
             <label htmlFor="password">Contraseña</label>
             <input
               id="password"
-              type="password"
+              type={typeView}
               name="password"
               placeholder="Introduzca la contraseña"
               ref={register({ required: true, minLength: 8 })}
             />
             <img src={candado} className="key"></img>
+            <img src={viewIcon} className="keyView" onClick={changeState}></img>
 
             <label htmlFor="confirmPassword">Confirma la contraseña</label>
             <input
               id="confirmPassword"
-              type="password"
+              type={typeView}
               name="confirmPassword"
               placeholder="Confirme la contraseña"
               ref={register({ required: true, minLength: 8 })}
             ></input>
             <img src={candado} className="key"></img>
+            <img src={viewIcon} className="keyView" onClick={changeState}></img>
 
             <label className="radio" htmlFor="cbox1">
               <input className="radio2" name="cbox1" type="checkbox" id="cbox1" ref={register()} />

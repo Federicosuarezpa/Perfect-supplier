@@ -6,6 +6,8 @@ import email from '../../svg/email.svg';
 import user from '../../svg/user.svg';
 import { useHistory } from 'react-router-dom';
 import profile from '../../svg/profile-user.svg';
+import view from '../../svg/view.svg';
+import privateView from '../../svg/private.svg';
 
 export default function Register(props) {
   const { register, handleSubmit } = useForm();
@@ -15,8 +17,18 @@ export default function Register(props) {
   const [passWordConfirm, setPassWordConfirm] = useState('');
   const [message, setMessage] = useState('');
   const [confirm, setConfirm] = useState('');
+  const [viewIcon, setView] = useState(view);
+  const [typeView, setTypeView] = useState('password');
   const history = useHistory();
-
+  const changeState = () => {
+    if (typeView === 'password') {
+      setView(privateView);
+      setTypeView('text');
+    } else {
+      setView(view);
+      setTypeView('password');
+    }
+  };
   const validatePass = () => {
     if (passwordOne.length < 8 && passwordOne.length > 0) setMessage('Debe tener al menos 8 carácteres');
     if (passwordOne.length >= 8) {
@@ -81,7 +93,7 @@ export default function Register(props) {
             <label htmlFor="password">Contraseña</label>
             <input
               id="password"
-              type="password"
+              type={typeView}
               name="password"
               value={passwordOne}
               onChange={(e) => setPasswordOne(e.target.value)}
@@ -90,12 +102,13 @@ export default function Register(props) {
               ref={register({ required: true, minLength: 8 })}
             />
             <img src={candado} className="key"></img>
+            <img src={viewIcon} className="keyView" onClick={changeState}></img>
 
             <p className="problema">{message}</p>
             <label htmlFor="confirmPassword">Confirma la contraseña</label>
             <input
               id="confirmPassword"
-              type="password"
+              type={typeView}
               name="confirmPassword"
               placeholder="Confirme la contraseña"
               value={passWordConfirm}
@@ -104,6 +117,8 @@ export default function Register(props) {
               ref={register({ required: true, minLength: 8 })}
             ></input>
             <img src={candado} className="key"></img>
+            <img src={viewIcon} className="keyView" onClick={changeState}></img>
+
             <p className="problema">{confirm}</p>
             <input className="botonLogin" type="submit" />
             <hr></hr>

@@ -1,7 +1,6 @@
 import { useForm } from 'react-hook-form';
 import profile from '../../svg/caja.svg';
 import { useState, useEffect } from 'react';
-
 import { Link } from 'react-router-dom';
 import useAuth from '../../shared/hooks/useAuth';
 import '../../stylesPages/newProduct.css';

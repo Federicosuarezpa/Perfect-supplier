@@ -224,6 +224,13 @@ em {
   height: 1rem;
   width: 1rem;
 }
+.keyView {
+  position: relative;
+  transform: translate(1350%, -250%);
+  height: 1rem;
+  width: 1rem;
+  opacity: 0.5;
+}
 .filter {
   position: absolute;
   height: 2rem;

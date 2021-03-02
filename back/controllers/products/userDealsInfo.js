@@ -19,7 +19,7 @@ const userDeals = async (req, res, next) => {
       error.httpStatus = 401;
       throw error;
     }
-    const [ids] = deals.map(function (el) {
+    const ids = deals.map(function (el) {
       return el.id_product;
     });
     const [infoProduct] = await connection.query(
@@ -30,12 +30,27 @@ const userDeals = async (req, res, next) => {
         `,
       [ids]
     );
-
+    const info = deals.map(function (el) {
+      const objeto = infoProduct.find(
+        (element) => element.id === el.id_product
+      );
+      const informacion = {
+        id_deal: el.id,
+        foto: objeto.photo,
+        name: objeto.name,
+        category: objeto.category,
+        description: objeto.description,
+        price: objeto.price,
+        location: objeto.location,
+        id_product: objeto.id,
+      };
+      return informacion;
+    });
+    console.log(info);
     res.send({
       status: "ok",
       message: {
-        deals,
-        infoProduct,
+        info,
       },
     });
   } catch (error) {

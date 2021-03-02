@@ -12,16 +12,14 @@ export default function Buys(props) {
     const [data, setData] = useState([]);
     async function getData() {
       let dataInfo = await productsBought(userData?.id);
-      let dataInfoProduct = dataInfo.message.infoProduct;
-      dataInfo = dataInfo.message.deals;
-      console.log(dataInfo[0].id);
-      const listCategory = dataInfoProduct.map((item, index) => (
-        <Link to={`/profile/${userData?.id}/buy/${item.id}/rate/${dataInfo[0].id}`}>
+      dataInfo = dataInfo.message.info;
+      const listCategory = dataInfo.map((item) => (
+        <Link to={`/profile/${userData?.id}/buy/${item.id_product}/rate/${item.id_deal}`}>
           <li class="itemProductUser">
             <div className="item-image">
               <img
                 className="imagen"
-                src={`http://localhost:3000/uploads/${String.fromCharCode.apply(null, item?.photo?.data)}`}
+                src={`http://localhost:3000/uploads/${String.fromCharCode.apply(null, item?.foto.data)}`}
                 alt="productsUser"
               ></img>
             </div>

@@ -71,7 +71,7 @@ export default function Items(props) {
     setLocation(value.target.value);
     const reduced = data.reduce(function (filtered, option) {
       if (
-        (value === 'Todas' || option.location === value.target.value) &&
+        (value.target.value === 'Todas' || option.location === value.target.value) &&
         option.price > price &&
         (category === 'Todas' || option.category === category)
       ) {
@@ -99,10 +99,12 @@ export default function Items(props) {
     setProducts(listFiltered);
   };
   const onChangeCategory = (value) => {
+    console.log(price);
+    console.log(location);
     setCategory(value.target.value);
     const reduced = data.reduce(function (filtered, option) {
       if (
-        (value === 'Todas' || option.category === value.target.value) &&
+        (value.target.value === 'Todas' || option.category === value.target.value) &&
         option.price > price &&
         (location === 'Todas' || option.location === location)
       ) {
